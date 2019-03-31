@@ -1,0 +1,1995 @@
+<!doctype html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+
+    <title>MB.MacroB API documentation</title>
+    <meta name="description" content="" />
+
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
+  
+  <style type="text/css">
+  
+* {
+  box-sizing: border-box;
+}
+/*! normalize.css v1.1.1 | MIT License | git.io/normalize */
+
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Correct `block` display not defined in IE 6/7/8/9 and Firefox 3.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+    display: block;
+}
+
+/**
+ * Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
+ */
+
+audio,
+canvas,
+video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+/**
+ * Address styling not present in IE 7/8/9, Firefox 3, and Safari 4.
+ * Known issue: no IE 6 support.
+ */
+
+[hidden] {
+    display: none;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+/**
+ * 1. Prevent system color scheme's background color being used in Firefox, IE,
+ *    and Opera.
+ * 2. Prevent system color scheme's text color being used in Firefox, IE, and
+ *    Opera.
+ * 3. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
+ *    `em` units.
+ * 4. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {
+    background: #fff; /* 1 */
+    color: #000; /* 2 */
+    font-size: 100%; /* 3 */
+    -webkit-text-size-adjust: 100%; /* 4 */
+    -ms-text-size-adjust: 100%; /* 4 */
+}
+
+/**
+ * Address `font-family` inconsistency between `textarea` and other form
+ * elements.
+ */
+
+html,
+button,
+input,
+select,
+textarea {
+    font-family: sans-serif;
+}
+
+/**
+ * Address margins handled incorrectly in IE 6/7.
+ */
+
+body {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+/**
+ * Address `outline` inconsistency between Chrome and other browsers.
+ */
+
+a:focus {
+    outline: thin dotted;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+
+a:active,
+a:hover {
+    outline: 0;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+/**
+ * Address font sizes and margins set differently in IE 6/7.
+ * Address font sizes within `section` and `article` in Firefox 4+, Safari 5,
+ * and Chrome.
+ */
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin: 0.83em 0;
+}
+
+h3 {
+    font-size: 1.17em;
+    margin: 1em 0;
+}
+
+h4 {
+    font-size: 1em;
+    margin: 1.33em 0;
+}
+
+h5 {
+    font-size: 0.83em;
+    margin: 1.67em 0;
+}
+
+h6 {
+    font-size: 0.67em;
+    margin: 2.33em 0;
+}
+
+/**
+ * Address styling not present in IE 7/8/9, Safari 5, and Chrome.
+ */
+
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 3+, Safari 4/5, and Chrome.
+ */
+
+b,
+strong {
+    font-weight: bold;
+}
+
+blockquote {
+    margin: 1em 40px;
+}
+
+/**
+ * Address styling not present in Safari 5 and Chrome.
+ */
+
+dfn {
+    font-style: italic;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ * Known issue: no IE 6/7 normalization.
+ */
+
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+}
+
+/**
+ * Address styling not present in IE 6/7/8/9.
+ */
+
+mark {
+    background: #ff0;
+    color: #000;
+}
+
+/**
+ * Address margins set differently in IE 6/7.
+ */
+
+p,
+pre {
+    margin: 1em 0;
+}
+
+/**
+ * Correct font family set oddly in IE 6, Safari 4/5, and Chrome.
+ */
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, serif;
+    _font-family: 'courier new', monospace;
+    font-size: 1em;
+}
+
+/**
+ * Improve readability of pre-formatted text in all browsers.
+ */
+
+pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/**
+ * Address CSS quotes not supported in IE 6/7.
+ */
+
+q {
+    quotes: none;
+}
+
+/**
+ * Address `quotes` property not supported in Safari 4.
+ */
+
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+    font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+/* ==========================================================================
+   Lists
+   ========================================================================== */
+
+/**
+ * Address margins set differently in IE 6/7.
+ */
+
+dl,
+menu,
+ol,
+ul {
+    margin: 1em 0;
+}
+
+dd {
+    margin: 0 0 0 40px;
+}
+
+/**
+ * Address paddings set differently in IE 6/7.
+ */
+
+menu,
+ol,
+ul {
+    padding: 0 0 0 40px;
+}
+
+/**
+ * Correct list images handled incorrectly in IE 7.
+ */
+
+nav ul,
+nav ol {
+    list-style: none;
+    list-style-image: none;
+}
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+
+/**
+ * 1. Remove border when inside `a` element in IE 6/7/8/9 and Firefox 3.
+ * 2. Improve image quality when scaled in IE 7.
+ */
+
+img {
+    border: 0; /* 1 */
+    -ms-interpolation-mode: bicubic; /* 2 */
+}
+
+/**
+ * Correct overflow displayed oddly in IE 9.
+ */
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+
+/**
+ * Address margin not present in IE 6/7/8/9, Safari 5, and Opera 11.
+ */
+
+figure {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+
+/**
+ * Correct margin displayed oddly in IE 6/7.
+ */
+
+form {
+    margin: 0;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct color not being inherited in IE 6/7/8/9.
+ * 2. Correct text not wrapping in Firefox 3.
+ * 3. Correct alignment displayed oddly in IE 6/7.
+ */
+
+legend {
+    border: 0; /* 1 */
+    padding: 0;
+    white-space: normal; /* 2 */
+    *margin-left: -7px; /* 3 */
+}
+
+/**
+ * 1. Correct font size not being inherited in all browsers.
+ * 2. Address margins set differently in IE 6/7, Firefox 3+, Safari 5,
+ *    and Chrome.
+ * 3. Improve appearance and consistency in all browsers.
+ */
+
+button,
+input,
+select,
+textarea {
+    font-size: 100%; /* 1 */
+    margin: 0; /* 2 */
+    vertical-align: baseline; /* 3 */
+    *vertical-align: middle; /* 3 */
+}
+
+/**
+ * Address Firefox 3+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+button,
+input {
+    line-height: normal;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 6+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+
+button,
+select {
+    text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ * 4. Remove inner spacing in IE 7 without affecting normal text inputs.
+ *    Known issue: inner spacing remains in IE 6.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button; /* 2 */
+    cursor: pointer; /* 3 */
+    *overflow: visible;  /* 4 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+    cursor: default;
+}
+
+/**
+ * 1. Address box sizing set to content-box in IE 8/9.
+ * 2. Remove excess padding in IE 8/9.
+ * 3. Remove excess padding in IE 7.
+ *    Known issue: excess padding remains in IE 6.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box; /* 1 */
+    padding: 0; /* 2 */
+    *height: 13px; /* 3 */
+    *width: 13px; /* 3 */
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+    -webkit-appearance: textfield; /* 1 */
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box; /* 2 */
+    box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+/**
+ * Remove inner padding and border in Firefox 3+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+/**
+ * 1. Remove default vertical scrollbar in IE 6/7/8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+
+textarea {
+    overflow: auto; /* 1 */
+    vertical-align: top; /* 2 */
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+  </style>
+
+  <style type="text/css">
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+  }
+  body {
+    background: #fff;
+    font-family: "Source Sans Pro", "Helvetica Neueue", Helvetica, sans;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.6em;
+  }
+  #content {
+    width: 70%;
+    max-width: 850px;
+    float: left;
+    padding: 30px 60px;
+    border-left: 1px solid #ddd;
+  }
+  #sidebar {
+    width: 25%;
+    float: left;
+    padding: 30px;
+    overflow: hidden;
+  }
+  #nav {
+    font-size: 130%;
+    margin: 0 0 15px 0;
+  }
+
+  #top {
+    display: block;
+    position: fixed;
+    bottom: 5px;
+    left: 5px;
+    font-size: .85em;
+    text-transform: uppercase;
+  }
+
+  #footer {
+    font-size: .75em;
+    padding: 5px 30px;
+    border-top: 1px solid #ddd;
+    text-align: right;
+  }
+    #footer p {
+      margin: 0 0 0 30px;
+      display: inline-block;
+    }
+
+  h1, h2, h3, h4, h5 {
+    font-weight: 300;
+  }
+  h1 {
+    font-size: 2.5em;
+    line-height: 1.1em;
+    margin: 0 0 .50em 0;
+  }
+
+  h2 {
+    font-size: 1.75em;
+    margin: 1em 0 .50em 0;
+  }
+
+  h3 {
+    margin: 25px 0 10px 0;
+  }
+
+  h4 {
+    margin: 0;
+    font-size: 105%;
+  }
+
+  a {
+    color: #058;
+    text-decoration: none;
+    transition: color .3s ease-in-out;
+  }
+
+  a:hover {
+    color: #e08524;
+    transition: color .3s ease-in-out;
+  }
+
+  pre, code, .mono, .name {
+    font-family: "Ubuntu Mono", "Cousine", "DejaVu Sans Mono", monospace;
+  }
+
+  .title .name {
+    font-weight: bold;
+  }
+  .section-title {
+    margin-top: 2em;
+  }
+  .ident {
+    color: #900;
+  }
+
+  code {
+    background: #f9f9f9;
+  } 
+
+  pre {
+    background: #fefefe;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 0 #f3f3f3;
+    margin: 0 30px;
+    padding: 15px 30px;
+  }
+
+  .codehilite {
+    margin: 0 30px 10px 30px;
+  }
+
+    .codehilite pre {
+      margin: 0;
+    }
+    .codehilite .err { background: #ff3300; color: #fff !important; } 
+
+  table#module-list {
+    font-size: 110%;
+  }
+
+    table#module-list tr td:first-child {
+      padding-right: 10px;
+      white-space: nowrap;
+    }
+
+    table#module-list td {
+      vertical-align: top;
+      padding-bottom: 8px;
+    }
+
+      table#module-list td p {
+        margin: 0 0 7px 0;
+      }
+
+  .def {
+    display: table;
+  }
+
+    .def p {
+      display: table-cell;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    .def p:first-child {
+      white-space: nowrap;
+    }
+
+    .def p:last-child {
+      width: 100%;
+    }
+
+
+  #index {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+    ul#index .class_name {
+      /* font-size: 110%; */
+      font-weight: bold;
+    }
+    #index ul {
+      margin: 0;
+    }
+
+  .item {
+    margin: 0 0 15px 0;
+  }
+
+    .item .class {
+      margin: 0 0 25px 30px;
+    }
+
+      .item .class ul.class_list {
+        margin: 0 0 20px 0;
+      }
+
+    .item .name {
+      background: #fafafa;
+      margin: 0;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 3px;
+      display: inline-block;
+      min-width: 40%;
+    }
+      .item .name:hover {
+        background: #f6f6f6;
+      }
+
+    .item .empty_desc {
+      margin: 0 0 5px 0;
+      padding: 0;
+    }
+
+    .item .inheritance {
+      margin: 3px 0 0 30px;
+    }
+
+    .item .inherited {
+      color: #666;
+    }
+
+    .item .desc {
+      padding: 0 8px;
+      margin: 0;
+    }
+
+      .item .desc p {
+        margin: 0 0 10px 0;
+      }
+
+    .source_cont {
+      margin: 0;
+      padding: 0;
+    }
+
+    .source_link a {
+      background: #ffc300;
+      font-weight: 400;
+      font-size: .75em;
+      text-transform: uppercase;
+      color: #fff;
+      text-shadow: 1px 1px 0 #f4b700;
+      
+      padding: 3px 8px;
+      border-radius: 2px;
+      transition: background .3s ease-in-out;
+    }
+      .source_link a:hover {
+        background: #FF7200;
+        text-shadow: none;
+        transition: background .3s ease-in-out;
+      }
+
+    .source {
+      display: none;
+      max-height: 600px;
+      overflow-y: scroll;
+      margin-bottom: 15px;
+    }
+
+      .source .codehilite {
+        margin: 0;
+      }
+
+  .desc h1, .desc h2, .desc h3 {
+    font-size: 100% !important;
+  }
+  .clear {
+    clear: both;
+  }
+
+  @media all and (max-width: 950px) {
+    #sidebar {
+      width: 35%;
+    }
+    #content {
+      width: 65%;
+    }
+  }
+  @media all and (max-width: 650px) {
+    #top {
+      display: none;
+    }
+    #sidebar {
+      float: none;
+      width: auto;
+    }
+    #content {
+      float: none;
+      width: auto;
+      padding: 30px;
+    }
+
+    #index ul {
+      padding: 0;
+      margin-bottom: 15px;
+    }
+    #index ul li {
+      display: inline-block;
+      margin-right: 30px;
+    }
+    #footer {
+      text-align: left;
+    }
+    #footer p {
+      display: block;
+      margin: inherit;
+    }
+  }
+
+  /*****************************/
+
+  </style>
+
+
+  <style type="text/css">
+  
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
+
+  </style>
+
+  <script type="text/javascript">
+  function toggle(id, $link) {
+    $node = document.getElementById(id);
+    if (!$node)
+    return;
+    if (!$node.style.display || $node.style.display == 'none') {
+    $node.style.display = 'block';
+    $link.innerHTML = 'Hide source &nequiv;';
+    } else {
+    $node.style.display = 'none';
+    $link.innerHTML = 'Show source &equiv;';
+    }
+  }
+  </script>
+</head>
+<body>
+<a href="#" id="top">Top</a>
+
+<div id="container">
+    
+  
+  <div id="sidebar">
+    <h1>Index</h1>
+    <ul id="index">
+
+    <li class="set"><h3><a href="#header-functions">Functions</a></h3>
+      
+  <ul>
+    <li class="mono"><a href="#MB.MacroB.build_macrocomplex">build_macrocomplex</a></li>
+    <li class="mono"><a href="#MB.MacroB.generate_model_profile">generate_model_profile</a></li>
+    <li class="mono"><a href="#MB.MacroB.get_interaction_dict">get_interaction_dict</a></li>
+    <li class="mono"><a href="#MB.MacroB.get_new_id">get_new_id</a></li>
+    <li class="mono"><a href="#MB.MacroB.get_starting_model">get_starting_model</a></li>
+    <li class="mono"><a href="#MB.MacroB.get_string_stech_dict">get_string_stech_dict</a></li>
+    <li class="mono"><a href="#MB.MacroB.get_template_stech_dict">get_template_stech_dict</a></li>
+    <li class="mono"><a href="#MB.MacroB.has_clashes">has_clashes</a></li>
+    <li class="mono"><a href="#MB.MacroB.has_homolgs">has_homolgs</a></li>
+    <li class="mono"><a href="#MB.MacroB.main_loop">main_loop</a></li>
+    <li class="mono"><a href="#MB.MacroB.read_pdbs">read_pdbs</a></li>
+    <li class="mono"><a href="#MB.MacroB.save_results">save_results</a></li>
+    <li class="mono"><a href="#MB.MacroB.unify_ids">unify_ids</a></li>
+    <li class="mono"><a href="#MB.MacroB.update_interactions_dict">update_interactions_dict</a></li>
+  </ul>
+
+    </li>
+
+
+    </ul>
+  </div>
+
+    <article id="content">
+      
+  
+
+  
+
+
+  <header id="section-intro">
+  <h1 class="title"><span class="name">MB.MacroB</span> module</h1>
+  
+  
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.MacroB', this);">Show source &equiv;</a></p>
+  <div id="source-MB.MacroB" class="source">
+    <pre><code>#!/usr/bin/env python
+# coding=utf-8
+from Bio.PDB.PDBParser import PDBParser
+from os import listdir
+import Bio.PDB.NeighborSearch
+from Bio.pairwise2 import align
+import random
+import sys
+from MB.CustomPDB import CustomModel, CustomChain
+import os
+
+
+def read_pdbs(directory, verbose=False):
+    """Reads the input directory and generates pdb models"""
+    if verbose:
+        print("Reading pdb input files from %s" % directory)
+    parser = PDBParser(PERMISSIVE=1, QUIET=True)
+    if os.path.isdir(directory) and directory.endswith("/"):
+        try:
+            pdbmodels = [parser.get_structure("Model_pair", directory + f)[0] for
+                    f in listdir(directory) if f.endswith(".pdb")] #  Generates pdb objects for files that end with .pdb
+        except:
+            sys.stderr.write("PDB files couldn't be opened. Please, revise that their format is correct.")
+            sys.exit(1)
+    else:
+        sys.stderr.write("Directory %s doesn't exists, please select a valid directory." % directory)
+        sys.exit(1)
+    if not bool(pdbmodels):  # If no pdb instance is generated
+        sys.stderr.write("No pdb files where read. Please make sure the given directory contains pdb files. ")
+        sys.exit(1)
+    for model in pdbmodels:
+        if len(model.child_list) != 2:
+            sys.stderr.write("A pdb input file doesn't contains two chains. Please, all input pdbs must only contain "
+                             "two chains.")
+            sys.exit(1)
+    if verbose:
+        print("Pdb objects stored")
+    return pdbmodels
+
+
+def get_new_id(iterator):
+    """Returns a new id that is not in the given iterator"""
+    letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789ñÑçÇ'
+    for l in letters:
+        if l not in iterator:
+            return l
+    sys.stderr.write("Too many different chains given. The program can only handle modeling"
+                     " a maximum of 66 different sequences")
+    exit(1)
+
+
+def has_homolgs(target_seq, known_seqs):
+    """Checks if a given sequence is an homolog of any of the known sequences and returns it"""
+    for k_seq in known_seqs:
+        alignment = align.globalxx(target_seq, k_seq)[0] # Generates and selects the alignment with the best score
+        aln_seq_1 = alignment[0]  # Get the first sequence of the alignment (with - as gaps )
+        aln_seq_2 = alignment[1]  # Get the second one
+        al_length = len(alignment[0])
+        ident = sum(base1 == base2 for base1, base2 in zip(aln_seq_1, aln_seq_2))  # Calculate number of identities
+        if ident/al_length >= 0.95:  # If 95% of identity, return known sequence
+            return k_seq
+
+
+def unify_ids(pdbmodels, verbose=False):
+    """Unifies chain identifiers and updates the pdb models to CustomModel class"""
+    seq_dict = dict()  # Dictionary where sequences are keys and ids are values
+    if verbose:
+        print("Unifying Ids")
+    for i in range(len(pdbmodels)):
+        pdb = pdbmodels[i]
+        model = CustomModel(str(i))  # Transforms model to CustomModel instance
+        for chain in pdb:
+            chain = CustomChain(chain)  # Transforms chain to CustomChain instance
+            chain.parent = None  # Removes previous parent from chain
+            chain_seq = chain.get_sequence()
+            if chain_seq not in seq_dict:
+                if not seq_dict:  # If the sequence dictionary is empty
+                    new_id = get_new_id(seq_dict.values())  # Get first id (A)
+                    seq_dict[chain_seq] = new_id  # Set the first sequence as key and A as value
+                    chain.id = new_id  # Also update chain id to A
+                else:  # If dictionary is not empty
+                    sequences = seq_dict.keys()
+                    homolog_seq = has_homolgs(chain_seq, sequences)  # Check if sequence has homology
+                    if homolog_seq:
+                        homolog_id = seq_dict[homolog_seq]  # Get homolog id from seq_dict
+                        seq_dict[chain_seq] = homolog_id  # Set this sequence with the homolog id as value
+                        chain.id = homolog_id   # Also change chain id to homolog's
+                    else:
+                        new_id = get_new_id(seq_dict.values())  # Otherwise generate a new id
+                        seq_dict[chain_seq] = new_id
+                        chain.id = new_id
+            else:
+                chain.id = seq_dict[chain_seq]  # If chain is already in seq_dict, update chain object id
+            model.add(chain)
+        pdbmodels[i] = model  # Update pdbmodels list with the updated model
+    if verbose:
+        print("Ids unified")
+    return seq_dict
+
+
+def get_interaction_dict(clean_pdbs, verbose=False):
+    """Generates interaction dictionary. This is a dictionary of dictionaries. Each chain id is the key of the first
+    dictionary, and as value a dictionary. The dictionary inside has tuples of interactiong resiudes (their number)
+    from chain 1 to 2 as keys and for value it has a tuple of chain object 1, chain object 2 and interaction resiudes from 2 to 1:
+    For instance:
+    {Chain1 id : {
+        (first interacting residues number from chain 1 to 2):  (Chain1 instance,
+                                                                Chain2 instance,
+                                                                interacting residues number from chain 2 to 1)
+                                                                }
+        (second interacting resiudes...) : (... , ... , ... )
+        ...
+     Chain2 id : {
+        (first interacting residues number from chain 2 to 1):  (Chain2 instance,
+                                                                (Chain1 instance,
+                                                                interacting residues number from chain 1 to 1)
+        (second interacting resiudes...) : (... , ... , ... )
+        ...
+    """
+    interaction_dict = dict()
+    if verbose:
+        print("Generating interaction dictionary...")
+    for pdb in clean_pdbs:
+        chain1, chain2 = list(pdb.get_chains())
+        inter1_2, inter2_1 = chain1.get_interactions(chain2)  # Generates interaction tuples,
+        # from chain 1 to 2 and from 2 to 1. For instance:
+        # inter1_2 = (2,40,120)
+        # inter2_1=(34, 20)
+        if inter1_2 != ():  # If tuple is not empty (there is an interaction)
+            interaction_dict.setdefault(chain1.id, dict())[inter1_2] = (chain1, chain2, inter2_1) # Update dictionary
+        if inter2_1 != ():  # Same for the other interaction
+            interaction_dict.setdefault(chain2.id, dict())[inter2_1] = (chain2, chain1, inter1_2)
+    if verbose:
+        print("Interaction dictionary generated")
+    return interaction_dict
+
+
+def update_interactions_dict(interaction_dict, verbose=False):
+    """Updates the interactions attribute of each chain inside the dictionary"""
+    if verbose:
+        print("Updating interaction dictionary...")
+    for chain in interaction_dict:
+        for interaction_tple in interaction_dict[chain]:
+            chain1, chain2, ref_inter = interaction_dict[chain][interaction_tple] # De-packs the interaction tuple value
+            # Generates a list with all interactions of that key minus the current one
+            chain1_filtered_interactions_lst = [x for x in interaction_dict[chain1.id].keys() if x != interaction_tple]
+            # Updates chain_interaction attribute with the list of interaction tuples
+            chain1.add_interaction_lst(chain1_filtered_interactions_lst)
+            # Generates a list with all interactions minus the one from chain2 to chain1
+            chain2_filtered_interactions_lst = [x for x in interaction_dict[chain2.id].keys() if x != ref_inter]
+            chain2.add_interaction_lst(chain2_filtered_interactions_lst)
+            parent = chain1.get_parent()
+            parent.child_list = [chain1, chain2] # Updates the model chains with these new updated chains
+            interaction_dict[chain][interaction_tple] = chain1, chain2 # Updates the dictionary value
+            # (now without the interaction from chain 2 to 1)
+    if verbose:
+        print("Interaction dictionary updated")
+
+
+def has_clashes(move_atoms, model):
+    """Compares the atoms backbone atoms of the moving chain with the backbone atoms of the model"""
+    backbone = {"CA", "C1\'"}
+    chain_atoms = [atom for atom in move_atoms if atom.id in backbone]  # Gets only the backbone atoms
+    model_atoms = [atom for atom in model.get_atoms() if atom.id in backbone]
+    ns = Bio.PDB.NeighborSearch(model_atoms)  # Generates a neigbour search tree to speed up distance calculations
+    clashes = 0
+    for atom in chain_atoms:
+        clashes += bool(ns.search(atom.coord, 2))  # If this atom shows clashes, add 1 to the clashes counter
+    if clashes/len(chain_atoms) >= 0.03:  # If more than 3% of atoms show clashes return yes
+        return True
+    else:  # Otherwise return no
+        return False
+
+
+def get_starting_model(interaction_dict, verbose=False):
+    """Returns as a starting model one of the CustomModel of the chain with more recorded interactions"""
+    if verbose:
+        print("Selecting best interaction from where to start modeling...")
+    max_len = 0
+    interaction_key = None
+    for key in interaction_dict:
+        length = len(interaction_dict[key])
+        if length > max_len:  # If a chain has more interactions
+            max_len = length  # Updates maximum interaction umber
+            interaction_key = key  # Updates maximum interaction chain key
+    inter_tple = next(iter(interaction_dict[interaction_key]))  # Gets an interaction tuple of the chain
+    # with more interactions
+    if verbose:
+        print("First two chains added")
+    return interaction_dict[interaction_key][inter_tple][0].parent.copy()  # Returns the model of the interaction tuple
+
+
+def generate_model_profile(model):
+    """Generates a dictionary with the id chain as key and the number of repetitions of this chain as values"""
+    profile = {}  # { "A":1, "B":4, ...}
+    for chain in model:
+        profile.setdefault(chain.id, 0)  # If id not in dic, set it to 0
+        profile[chain.id] += 1 # Sum 1 to the counter of the id
+    return profile
+
+
+def save_results(out_models, output):
+    """Saves the resulting models into cif files (at the current working directory"""
+    i = 1
+    print("Saving models...")
+    path = os.getcwd()
+    for model in out_models:  # Saves all models in the current working directory
+        model.save_to_mmCIF(path+"/"+output + "_" + str(i))
+        i += 1
+    print("Done\n")
+
+
+def main_loop(num_models, output, interaction_dict, verbose=False, max_chains=100, dirty=False,
+              stech_dict=False):
+    """Using the interaction dictionary, this function generates macrocomplex model/s. It begins with a template model
+    and starts adding chains until conditions allow. Finally it returns a list of pdb instance models."""
+    out_models = []
+    for i in range(1, num_models + 1):
+        print("Macrocomplex " + str(i) + " ...")
+        macrocomplex = get_starting_model(interaction_dict, verbose).copy()  # Selects a starting model
+        model_stech = generate_model_profile(macrocomplex)  # Generates the stechometry of the first two chains
+        macrocomplex.id = "Model_" + str(i)
+        run = True  # WHile this variable is true, the program will keep trying to add chains to the macrocomplex
+        num_of_chains = 2  # The model starts with 2 chains already
+        num_empty_chains = 0  # NUmber of chains that have all their interactions depleted
+        while run:
+            for chain in macrocomplex:  # Iterates the macrocomplex chains
+                if num_of_chains < max_chains:  # If the number of chains still hasn't reached the maximum allowed
+                    if chain.interactions:  # If this chain still has pending interactions
+                        random.shuffle(chain.interactions)  # Shuffle the interactions list (to avoid
+                        # repetitive behaviour)
+                        for inter_tple in chain.interactions:
+                            if stech_dict:  # If there is stechometry input (either as stirng or template pdb)
+                                target_chain_id = interaction_dict[chain.id][inter_tple][1].id  # chain to be added
+                                model_stech.setdefault(target_chain_id, 0)
+                                model_number_chain = model_stech[target_chain_id]  # Get the number of repetitions
+                                stech_dict.setdefault(target_chain_id, 0)
+                                if stech_dict[target_chain_id] <= model_number_chain:  # If the number of this target
+                                    # chain would surpass the stechemestry given, don't add the chain and
+                                    if verbose:
+                                        print("(S) Chain NOT added: interaction " + chain.id + ": " +
+                                            str(inter_tple[:1]) + " ... " + str(inter_tple[-1]) + " to " + target_chain_id)
+                                    continue # jump to the next interaction tuple
+                            fix, to_move = interaction_dict[chain.id][inter_tple]  # Get the interaction chain instances
+                            sup = Bio.PDB.Superimposer()  # Generates a superimposer instance
+                            chain_atoms, fix_atoms = chain.get_common_atoms(fix) # Get common atoms between the
+                            # macrocomplex chain and the one in the interaction dictionary
+                            sup.set_atoms(chain_atoms, fix_atoms)  # Generate the superposition
+                            move = to_move.copy()  # Make a copy of the chain to move
+                            sup.apply(move)  # Apply superposition matrix
+                            move_atoms = sorted(move.get_atoms())
+                            # Now it checks if the target chain has clashes with the model
+                            if not has_clashes(move_atoms, macrocomplex):  # If it hasn't
+                                if verbose:
+                                    print("Chain " + str(num_of_chains) + " added: interaction " + chain.id + ": " +
+                                          str(inter_tple[0]) + " ... " + str(inter_tple[-1]) + " to " + move.id)
+                                move.parent = None  # Sets the parent to none to evade biopython's strict id policy
+                                macrocomplex.add(move)  # Adds the target chain to the model
+                                model_stech.setdefault(move.id, 0)  # Updates stech dict
+                                model_stech[move.id] += 1
+                                num_of_chains += 1
+                                if dirty:  # Generates a cif file for each step in the building of the model
+                                    macrocomplex.save_to_mmCIF(output + str(i) + "_tmp_" + str(num_of_chains))
+                            elif verbose:  # If it has don't add the target chain
+                                print("Chain NOT added: interaction " + chain.id + ": " +
+                                      str(inter_tple[:1]) + " ... " + str(inter_tple[-1]) + " to " + move.id)
+                        chain.interactions = False  # Set the interaction attribute to 0, this chain now will be ignored
+                    else:
+                        if verbose:
+                            print("Chain " + chain.id + " empty")
+                        num_empty_chains += 1
+                else:
+                    run = False  # When the maximum chain treshold is reached stop running
+                    break
+            if num_empty_chains >= len(macrocomplex):  # If all chains are empty of interactions stop running
+                run = False
+        if verbose:
+            stechometry_string = ""  # Print the model's stechometry
+            for key in sorted(model_stech.keys()):
+                stechometry_string += key + ":" + str(model_stech[key]) + ","
+            stechometry_string = stechometry_string[:-1]
+            print("Macrocomplex's"+str(i)+" Stoichiometry is: "+stechometry_string)
+        print("Macrocomplex " + str(i) + " finished")
+        out_models.append(macrocomplex)  # Add model to the models list
+    return out_models
+
+def get_template_stech_dict(template, seq_dict, verbose=False):
+    """Generates a stechometry dictionary for a given pdb template"""
+    template_stech_dict = {}  # Format: { "A": 2, "B": 3, ...}, where key is chain id and value
+    # is the number of repetitions
+    parser = PDBParser(PERMISSIVE=1, QUIET=True)
+    template_object = parser.get_structure("template", template)[0]  # Generates pdb template object
+    for chain in template_object:
+        chain = CustomChain(chain)  # Transforms pdb chain object to CustomChain instance
+        chain.parent = None  # Removes previous parent to evade biopython errors of id repetitions
+        chain_seq = chain.get_sequence()
+        if chain_seq in seq_dict:
+            chain.id = seq_dict[chain_seq]  # Updates the template chain id to the corresponding by its sequence
+            template_stech_dict.setdefault(chain.id, 0)
+            template_stech_dict[chain.id] += 1  # Adds to chain id counter
+    if verbose:  # Transforms the stech_dict to a string to be printed
+        stechometry_string = ""
+        for key in sorted(template_stech_dict.keys()):
+            stechometry_string += key+":"+str(template_stech_dict[key])+","
+        stechometry_string = stechometry_string[:-1]
+        print("Template's Stoichiometry is: "+stechometry_string)
+    return template_stech_dict
+
+def get_string_stech_dict(stech_string):
+    """Given a stechometry string it transsforms it to a dictionary"""
+    stech_dict = {}
+    try:
+        stech_lst = stech_string.split(",")  # Generates a stech list: ["A:3", "B:2", ...]
+        for stech in stech_lst:
+            chain, number = stech.split(":")
+            stech_dict[chain] = int(number)  # Chain id as key and number as value: { "A": 3, "B": 2, ...}
+        return stech_dict
+    except:
+        sys.stderr.write("Stechometry string format is wrong, please follow this format: A:2,B:11,C:4, ...")
+        sys.exit(1)
+
+
+def build_macrocomplex(directory, output, max_chains=300, num_models=1, template=False, dirty=False, verbose=False, stech_string=False):
+    """Main function that integrates all the important steps. First it reads the pdb models ans stores them in a list.
+    Then it compares all the chains and unifies the chain ids of the pdb list updating them, it also generates a sequence
+    key dictionary. Then it checks at each pdb model for chain interactions and stores them in a dictionary. After it
+    updates the dictionary with information of itself. Next it generates the model/s using this interactions. Finally it
+    saves the model/s in cif format."""
+    print("Program is running, please wait...")
+    # Reads and stores pdb objects in a list
+    in_pdbmodels = read_pdbs(directory, verbose)
+    # Unifies all ids by sequence, updates the pdb list with new chain ids and returns a sequence dictionary: {seq: id,}
+    seq_dict = unify_ids(in_pdbmodels, verbose)
+    # Checks each pdb object for chain interactions and stores it in a dictionary of dictionaries:
+    # {
+    #   Chain1_id : { residues_tuple_1_to_2 : chain1_object, chain2_object, residues_tuple_2_to_1}
+    #   Chain2_id : {residues_tuple_2_to_1 : chain2_object, chain1_object, residues_tuple_1_to_2}
+    #   ...
+    # }
+    interaction_dict = get_interaction_dict(in_pdbmodels, verbose=verbose)
+    # Changes interaction_dict chain objects to CustomChain instances and adds the interactions to each instance
+    update_interactions_dict(interaction_dict, verbose)
+    stech_dict = {}
+    # If a template or a string has been given to set Stoichometry, it generates a dictionary of it
+    # { "A":5, "B":2, "C":6, .. }
+    if template:
+        stech_dict = get_template_stech_dict(template, seq_dict, verbose=verbose)
+    elif stech_string:
+        stech_dict = get_string_stech_dict(stech_string)
+    # Starts iterating the interaction pair with more known interactions and generates the model/s
+    out_pdbmodels = main_loop(num_models, output, interaction_dict, verbose, max_chains, dirty, stech_dict=stech_dict)
+    # Saves the model/s to ciff format
+    save_results(out_pdbmodels, output)
+</code></pre>
+  </div>
+
+  </header>
+
+  <section id="section-items">
+
+    <h2 class="section-title" id="header-functions">Functions</h2>
+      
+  <div class="item">
+    <div class="name def" id="MB.MacroB.build_macrocomplex">
+    <p>def <span class="ident">build_macrocomplex</span>(</p><p>directory, output, max_chains=300, num_models=1, template=False, dirty=False, verbose=False, stech_string=False)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Main function that integrates all the important steps. First it reads the pdb models ans stores them in a list.
+Then it compares all the chains and unifies the chain ids of the pdb list updating them, it also generates a sequence
+key dictionary. Then it checks at each pdb model for chain interactions and stores them in a dictionary. After it
+updates the dictionary with information of itself. Next it generates the model/s using this interactions. Finally it
+saves the model/s in cif format.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.MacroB.build_macrocomplex', this);">Show source &equiv;</a></p>
+  <div id="source-MB.MacroB.build_macrocomplex" class="source">
+    <pre><code>def build_macrocomplex(directory, output, max_chains=300, num_models=1, template=False, dirty=False, verbose=False, stech_string=False):
+    """Main function that integrates all the important steps. First it reads the pdb models ans stores them in a list.
+    Then it compares all the chains and unifies the chain ids of the pdb list updating them, it also generates a sequence
+    key dictionary. Then it checks at each pdb model for chain interactions and stores them in a dictionary. After it
+    updates the dictionary with information of itself. Next it generates the model/s using this interactions. Finally it
+    saves the model/s in cif format."""
+    print("Program is running, please wait...")
+    # Reads and stores pdb objects in a list
+    in_pdbmodels = read_pdbs(directory, verbose)
+    # Unifies all ids by sequence, updates the pdb list with new chain ids and returns a sequence dictionary: {seq: id,}
+    seq_dict = unify_ids(in_pdbmodels, verbose)
+    # Checks each pdb object for chain interactions and stores it in a dictionary of dictionaries:
+    # {
+    #   Chain1_id : { residues_tuple_1_to_2 : chain1_object, chain2_object, residues_tuple_2_to_1}
+    #   Chain2_id : {residues_tuple_2_to_1 : chain2_object, chain1_object, residues_tuple_1_to_2}
+    #   ...
+    # }
+    interaction_dict = get_interaction_dict(in_pdbmodels, verbose=verbose)
+    # Changes interaction_dict chain objects to CustomChain instances and adds the interactions to each instance
+    update_interactions_dict(interaction_dict, verbose)
+    stech_dict = {}
+    # If a template or a string has been given to set Stoichometry, it generates a dictionary of it
+    # { "A":5, "B":2, "C":6, .. }
+    if template:
+        stech_dict = get_template_stech_dict(template, seq_dict, verbose=verbose)
+    elif stech_string:
+        stech_dict = get_string_stech_dict(stech_string)
+    # Starts iterating the interaction pair with more known interactions and generates the model/s
+    out_pdbmodels = main_loop(num_models, output, interaction_dict, verbose, max_chains, dirty, stech_dict=stech_dict)
+    # Saves the model/s to ciff format
+    save_results(out_pdbmodels, output)
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+      
+  <div class="item">
+    <div class="name def" id="MB.MacroB.generate_model_profile">
+    <p>def <span class="ident">generate_model_profile</span>(</p><p>model)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Generates a dictionary with the id chain as key and the number of repetitions of this chain as values</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.MacroB.generate_model_profile', this);">Show source &equiv;</a></p>
+  <div id="source-MB.MacroB.generate_model_profile" class="source">
+    <pre><code>def generate_model_profile(model):
+    """Generates a dictionary with the id chain as key and the number of repetitions of this chain as values"""
+    profile = {}  # { "A":1, "B":4, ...}
+    for chain in model:
+        profile.setdefault(chain.id, 0)  # If id not in dic, set it to 0
+        profile[chain.id] += 1 # Sum 1 to the counter of the id
+    return profile
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+      
+  <div class="item">
+    <div class="name def" id="MB.MacroB.get_interaction_dict">
+    <p>def <span class="ident">get_interaction_dict</span>(</p><p>clean_pdbs, verbose=False)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Generates interaction dictionary. This is a dictionary of dictionaries. Each chain id is the key of the first
+dictionary, and as value a dictionary. The dictionary inside has tuples of interactiong resiudes (their number)
+from chain 1 to 2 as keys and for value it has a tuple of chain object 1, chain object 2 and interaction resiudes from 2 to 1:
+For instance:
+{Chain1 id : {
+    (first interacting residues number from chain 1 to 2):  (Chain1 instance,
+                                                            Chain2 instance,
+                                                            interacting residues number from chain 2 to 1)
+                                                            }
+    (second interacting resiudes...) : (... , ... , ... )
+    ...
+ Chain2 id : {
+    (first interacting residues number from chain 2 to 1):  (Chain2 instance,
+                                                            (Chain1 instance,
+                                                            interacting residues number from chain 1 to 1)
+    (second interacting resiudes...) : (... , ... , ... )
+    ...</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.MacroB.get_interaction_dict', this);">Show source &equiv;</a></p>
+  <div id="source-MB.MacroB.get_interaction_dict" class="source">
+    <pre><code>def get_interaction_dict(clean_pdbs, verbose=False):
+    """Generates interaction dictionary. This is a dictionary of dictionaries. Each chain id is the key of the first
+    dictionary, and as value a dictionary. The dictionary inside has tuples of interactiong resiudes (their number)
+    from chain 1 to 2 as keys and for value it has a tuple of chain object 1, chain object 2 and interaction resiudes from 2 to 1:
+    For instance:
+    {Chain1 id : {
+        (first interacting residues number from chain 1 to 2):  (Chain1 instance,
+                                                                Chain2 instance,
+                                                                interacting residues number from chain 2 to 1)
+                                                                }
+        (second interacting resiudes...) : (... , ... , ... )
+        ...
+     Chain2 id : {
+        (first interacting residues number from chain 2 to 1):  (Chain2 instance,
+                                                                (Chain1 instance,
+                                                                interacting residues number from chain 1 to 1)
+        (second interacting resiudes...) : (... , ... , ... )
+        ...
+    """
+    interaction_dict = dict()
+    if verbose:
+        print("Generating interaction dictionary...")
+    for pdb in clean_pdbs:
+        chain1, chain2 = list(pdb.get_chains())
+        inter1_2, inter2_1 = chain1.get_interactions(chain2)  # Generates interaction tuples,
+        # from chain 1 to 2 and from 2 to 1. For instance:
+        # inter1_2 = (2,40,120)
+        # inter2_1=(34, 20)
+        if inter1_2 != ():  # If tuple is not empty (there is an interaction)
+            interaction_dict.setdefault(chain1.id, dict())[inter1_2] = (chain1, chain2, inter2_1) # Update dictionary
+        if inter2_1 != ():  # Same for the other interaction
+            interaction_dict.setdefault(chain2.id, dict())[inter2_1] = (chain2, chain1, inter1_2)
+    if verbose:
+        print("Interaction dictionary generated")
+    return interaction_dict
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+      
+  <div class="item">
+    <div class="name def" id="MB.MacroB.get_new_id">
+    <p>def <span class="ident">get_new_id</span>(</p><p>iterator)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Returns a new id that is not in the given iterator</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.MacroB.get_new_id', this);">Show source &equiv;</a></p>
+  <div id="source-MB.MacroB.get_new_id" class="source">
+    <pre><code>def get_new_id(iterator):
+    """Returns a new id that is not in the given iterator"""
+    letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789ñÑçÇ'
+    for l in letters:
+        if l not in iterator:
+            return l
+    sys.stderr.write("Too many different chains given. The program can only handle modeling"
+                     " a maximum of 66 different sequences")
+    exit(1)
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+      
+  <div class="item">
+    <div class="name def" id="MB.MacroB.get_starting_model">
+    <p>def <span class="ident">get_starting_model</span>(</p><p>interaction_dict, verbose=False)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Returns as a starting model one of the CustomModel of the chain with more recorded interactions</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.MacroB.get_starting_model', this);">Show source &equiv;</a></p>
+  <div id="source-MB.MacroB.get_starting_model" class="source">
+    <pre><code>def get_starting_model(interaction_dict, verbose=False):
+    """Returns as a starting model one of the CustomModel of the chain with more recorded interactions"""
+    if verbose:
+        print("Selecting best interaction from where to start modeling...")
+    max_len = 0
+    interaction_key = None
+    for key in interaction_dict:
+        length = len(interaction_dict[key])
+        if length > max_len:  # If a chain has more interactions
+            max_len = length  # Updates maximum interaction umber
+            interaction_key = key  # Updates maximum interaction chain key
+    inter_tple = next(iter(interaction_dict[interaction_key]))  # Gets an interaction tuple of the chain
+    # with more interactions
+    if verbose:
+        print("First two chains added")
+    return interaction_dict[interaction_key][inter_tple][0].parent.copy()  # Returns the model of the interaction tuple
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+      
+  <div class="item">
+    <div class="name def" id="MB.MacroB.get_string_stech_dict">
+    <p>def <span class="ident">get_string_stech_dict</span>(</p><p>stech_string)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Given a stechometry string it transsforms it to a dictionary</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.MacroB.get_string_stech_dict', this);">Show source &equiv;</a></p>
+  <div id="source-MB.MacroB.get_string_stech_dict" class="source">
+    <pre><code>def get_string_stech_dict(stech_string):
+    """Given a stechometry string it transsforms it to a dictionary"""
+    stech_dict = {}
+    try:
+        stech_lst = stech_string.split(",")  # Generates a stech list: ["A:3", "B:2", ...]
+        for stech in stech_lst:
+            chain, number = stech.split(":")
+            stech_dict[chain] = int(number)  # Chain id as key and number as value: { "A": 3, "B": 2, ...}
+        return stech_dict
+    except:
+        sys.stderr.write("Stechometry string format is wrong, please follow this format: A:2,B:11,C:4, ...")
+        sys.exit(1)
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+      
+  <div class="item">
+    <div class="name def" id="MB.MacroB.get_template_stech_dict">
+    <p>def <span class="ident">get_template_stech_dict</span>(</p><p>template, seq_dict, verbose=False)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Generates a stechometry dictionary for a given pdb template</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.MacroB.get_template_stech_dict', this);">Show source &equiv;</a></p>
+  <div id="source-MB.MacroB.get_template_stech_dict" class="source">
+    <pre><code>def get_template_stech_dict(template, seq_dict, verbose=False):
+    """Generates a stechometry dictionary for a given pdb template"""
+    template_stech_dict = {}  # Format: { "A": 2, "B": 3, ...}, where key is chain id and value
+    # is the number of repetitions
+    parser = PDBParser(PERMISSIVE=1, QUIET=True)
+    template_object = parser.get_structure("template", template)[0]  # Generates pdb template object
+    for chain in template_object:
+        chain = CustomChain(chain)  # Transforms pdb chain object to CustomChain instance
+        chain.parent = None  # Removes previous parent to evade biopython errors of id repetitions
+        chain_seq = chain.get_sequence()
+        if chain_seq in seq_dict:
+            chain.id = seq_dict[chain_seq]  # Updates the template chain id to the corresponding by its sequence
+            template_stech_dict.setdefault(chain.id, 0)
+            template_stech_dict[chain.id] += 1  # Adds to chain id counter
+    if verbose:  # Transforms the stech_dict to a string to be printed
+        stechometry_string = ""
+        for key in sorted(template_stech_dict.keys()):
+            stechometry_string += key+":"+str(template_stech_dict[key])+","
+        stechometry_string = stechometry_string[:-1]
+        print("Template's Stoichiometry is: "+stechometry_string)
+    return template_stech_dict
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+      
+  <div class="item">
+    <div class="name def" id="MB.MacroB.has_clashes">
+    <p>def <span class="ident">has_clashes</span>(</p><p>move_atoms, model)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Compares the atoms backbone atoms of the moving chain with the backbone atoms of the model</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.MacroB.has_clashes', this);">Show source &equiv;</a></p>
+  <div id="source-MB.MacroB.has_clashes" class="source">
+    <pre><code>def has_clashes(move_atoms, model):
+    """Compares the atoms backbone atoms of the moving chain with the backbone atoms of the model"""
+    backbone = {"CA", "C1\'"}
+    chain_atoms = [atom for atom in move_atoms if atom.id in backbone]  # Gets only the backbone atoms
+    model_atoms = [atom for atom in model.get_atoms() if atom.id in backbone]
+    ns = Bio.PDB.NeighborSearch(model_atoms)  # Generates a neigbour search tree to speed up distance calculations
+    clashes = 0
+    for atom in chain_atoms:
+        clashes += bool(ns.search(atom.coord, 2))  # If this atom shows clashes, add 1 to the clashes counter
+    if clashes/len(chain_atoms) >= 0.03:  # If more than 3% of atoms show clashes return yes
+        return True
+    else:  # Otherwise return no
+        return False
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+      
+  <div class="item">
+    <div class="name def" id="MB.MacroB.has_homolgs">
+    <p>def <span class="ident">has_homolgs</span>(</p><p>target_seq, known_seqs)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Checks if a given sequence is an homolog of any of the known sequences and returns it</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.MacroB.has_homolgs', this);">Show source &equiv;</a></p>
+  <div id="source-MB.MacroB.has_homolgs" class="source">
+    <pre><code>def has_homolgs(target_seq, known_seqs):
+    """Checks if a given sequence is an homolog of any of the known sequences and returns it"""
+    for k_seq in known_seqs:
+        alignment = align.globalxx(target_seq, k_seq)[0] # Generates and selects the alignment with the best score
+        aln_seq_1 = alignment[0]  # Get the first sequence of the alignment (with - as gaps )
+        aln_seq_2 = alignment[1]  # Get the second one
+        al_length = len(alignment[0])
+        ident = sum(base1 == base2 for base1, base2 in zip(aln_seq_1, aln_seq_2))  # Calculate number of identities
+        if ident/al_length >= 0.95:  # If 95% of identity, return known sequence
+            return k_seq
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+      
+  <div class="item">
+    <div class="name def" id="MB.MacroB.main_loop">
+    <p>def <span class="ident">main_loop</span>(</p><p>num_models, output, interaction_dict, verbose=False, max_chains=100, dirty=False, stech_dict=False)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Using the interaction dictionary, this function generates macrocomplex model/s. It begins with a template model
+and starts adding chains until conditions allow. Finally it returns a list of pdb instance models.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.MacroB.main_loop', this);">Show source &equiv;</a></p>
+  <div id="source-MB.MacroB.main_loop" class="source">
+    <pre><code>def main_loop(num_models, output, interaction_dict, verbose=False, max_chains=100, dirty=False,
+              stech_dict=False):
+    """Using the interaction dictionary, this function generates macrocomplex model/s. It begins with a template model
+    and starts adding chains until conditions allow. Finally it returns a list of pdb instance models."""
+    out_models = []
+    for i in range(1, num_models + 1):
+        print("Macrocomplex " + str(i) + " ...")
+        macrocomplex = get_starting_model(interaction_dict, verbose).copy()  # Selects a starting model
+        model_stech = generate_model_profile(macrocomplex)  # Generates the stechometry of the first two chains
+        macrocomplex.id = "Model_" + str(i)
+        run = True  # WHile this variable is true, the program will keep trying to add chains to the macrocomplex
+        num_of_chains = 2  # The model starts with 2 chains already
+        num_empty_chains = 0  # NUmber of chains that have all their interactions depleted
+        while run:
+            for chain in macrocomplex:  # Iterates the macrocomplex chains
+                if num_of_chains < max_chains:  # If the number of chains still hasn't reached the maximum allowed
+                    if chain.interactions:  # If this chain still has pending interactions
+                        random.shuffle(chain.interactions)  # Shuffle the interactions list (to avoid
+                        # repetitive behaviour)
+                        for inter_tple in chain.interactions:
+                            if stech_dict:  # If there is stechometry input (either as stirng or template pdb)
+                                target_chain_id = interaction_dict[chain.id][inter_tple][1].id  # chain to be added
+                                model_stech.setdefault(target_chain_id, 0)
+                                model_number_chain = model_stech[target_chain_id]  # Get the number of repetitions
+                                stech_dict.setdefault(target_chain_id, 0)
+                                if stech_dict[target_chain_id] <= model_number_chain:  # If the number of this target
+                                    # chain would surpass the stechemestry given, don't add the chain and
+                                    if verbose:
+                                        print("(S) Chain NOT added: interaction " + chain.id + ": " +
+                                            str(inter_tple[:1]) + " ... " + str(inter_tple[-1]) + " to " + target_chain_id)
+                                    continue # jump to the next interaction tuple
+                            fix, to_move = interaction_dict[chain.id][inter_tple]  # Get the interaction chain instances
+                            sup = Bio.PDB.Superimposer()  # Generates a superimposer instance
+                            chain_atoms, fix_atoms = chain.get_common_atoms(fix) # Get common atoms between the
+                            # macrocomplex chain and the one in the interaction dictionary
+                            sup.set_atoms(chain_atoms, fix_atoms)  # Generate the superposition
+                            move = to_move.copy()  # Make a copy of the chain to move
+                            sup.apply(move)  # Apply superposition matrix
+                            move_atoms = sorted(move.get_atoms())
+                            # Now it checks if the target chain has clashes with the model
+                            if not has_clashes(move_atoms, macrocomplex):  # If it hasn't
+                                if verbose:
+                                    print("Chain " + str(num_of_chains) + " added: interaction " + chain.id + ": " +
+                                          str(inter_tple[0]) + " ... " + str(inter_tple[-1]) + " to " + move.id)
+                                move.parent = None  # Sets the parent to none to evade biopython's strict id policy
+                                macrocomplex.add(move)  # Adds the target chain to the model
+                                model_stech.setdefault(move.id, 0)  # Updates stech dict
+                                model_stech[move.id] += 1
+                                num_of_chains += 1
+                                if dirty:  # Generates a cif file for each step in the building of the model
+                                    macrocomplex.save_to_mmCIF(output + str(i) + "_tmp_" + str(num_of_chains))
+                            elif verbose:  # If it has don't add the target chain
+                                print("Chain NOT added: interaction " + chain.id + ": " +
+                                      str(inter_tple[:1]) + " ... " + str(inter_tple[-1]) + " to " + move.id)
+                        chain.interactions = False  # Set the interaction attribute to 0, this chain now will be ignored
+                    else:
+                        if verbose:
+                            print("Chain " + chain.id + " empty")
+                        num_empty_chains += 1
+                else:
+                    run = False  # When the maximum chain treshold is reached stop running
+                    break
+            if num_empty_chains >= len(macrocomplex):  # If all chains are empty of interactions stop running
+                run = False
+        if verbose:
+            stechometry_string = ""  # Print the model's stechometry
+            for key in sorted(model_stech.keys()):
+                stechometry_string += key + ":" + str(model_stech[key]) + ","
+            stechometry_string = stechometry_string[:-1]
+            print("Macrocomplex's"+str(i)+" Stoichiometry is: "+stechometry_string)
+        print("Macrocomplex " + str(i) + " finished")
+        out_models.append(macrocomplex)  # Add model to the models list
+    return out_models
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+      
+  <div class="item">
+    <div class="name def" id="MB.MacroB.read_pdbs">
+    <p>def <span class="ident">read_pdbs</span>(</p><p>directory, verbose=False)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Reads the input directory and generates pdb models</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.MacroB.read_pdbs', this);">Show source &equiv;</a></p>
+  <div id="source-MB.MacroB.read_pdbs" class="source">
+    <pre><code>def read_pdbs(directory, verbose=False):
+    """Reads the input directory and generates pdb models"""
+    if verbose:
+        print("Reading pdb input files from %s" % directory)
+    parser = PDBParser(PERMISSIVE=1, QUIET=True)
+    if os.path.isdir(directory) and directory.endswith("/"):
+        try:
+            pdbmodels = [parser.get_structure("Model_pair", directory + f)[0] for
+                    f in listdir(directory) if f.endswith(".pdb")] #  Generates pdb objects for files that end with .pdb
+        except:
+            sys.stderr.write("PDB files couldn't be opened. Please, revise that their format is correct.")
+            sys.exit(1)
+    else:
+        sys.stderr.write("Directory %s doesn't exists, please select a valid directory." % directory)
+        sys.exit(1)
+    if not bool(pdbmodels):  # If no pdb instance is generated
+        sys.stderr.write("No pdb files where read. Please make sure the given directory contains pdb files. ")
+        sys.exit(1)
+    for model in pdbmodels:
+        if len(model.child_list) != 2:
+            sys.stderr.write("A pdb input file doesn't contains two chains. Please, all input pdbs must only contain "
+                             "two chains.")
+            sys.exit(1)
+    if verbose:
+        print("Pdb objects stored")
+    return pdbmodels
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+      
+  <div class="item">
+    <div class="name def" id="MB.MacroB.save_results">
+    <p>def <span class="ident">save_results</span>(</p><p>out_models, output)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Saves the resulting models into cif files (at the current working directory</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.MacroB.save_results', this);">Show source &equiv;</a></p>
+  <div id="source-MB.MacroB.save_results" class="source">
+    <pre><code>def save_results(out_models, output):
+    """Saves the resulting models into cif files (at the current working directory"""
+    i = 1
+    print("Saving models...")
+    path = os.getcwd()
+    for model in out_models:  # Saves all models in the current working directory
+        model.save_to_mmCIF(path+"/"+output + "_" + str(i))
+        i += 1
+    print("Done\n")
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+      
+  <div class="item">
+    <div class="name def" id="MB.MacroB.unify_ids">
+    <p>def <span class="ident">unify_ids</span>(</p><p>pdbmodels, verbose=False)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Unifies chain identifiers and updates the pdb models to CustomModel class</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.MacroB.unify_ids', this);">Show source &equiv;</a></p>
+  <div id="source-MB.MacroB.unify_ids" class="source">
+    <pre><code>def unify_ids(pdbmodels, verbose=False):
+    """Unifies chain identifiers and updates the pdb models to CustomModel class"""
+    seq_dict = dict()  # Dictionary where sequences are keys and ids are values
+    if verbose:
+        print("Unifying Ids")
+    for i in range(len(pdbmodels)):
+        pdb = pdbmodels[i]
+        model = CustomModel(str(i))  # Transforms model to CustomModel instance
+        for chain in pdb:
+            chain = CustomChain(chain)  # Transforms chain to CustomChain instance
+            chain.parent = None  # Removes previous parent from chain
+            chain_seq = chain.get_sequence()
+            if chain_seq not in seq_dict:
+                if not seq_dict:  # If the sequence dictionary is empty
+                    new_id = get_new_id(seq_dict.values())  # Get first id (A)
+                    seq_dict[chain_seq] = new_id  # Set the first sequence as key and A as value
+                    chain.id = new_id  # Also update chain id to A
+                else:  # If dictionary is not empty
+                    sequences = seq_dict.keys()
+                    homolog_seq = has_homolgs(chain_seq, sequences)  # Check if sequence has homology
+                    if homolog_seq:
+                        homolog_id = seq_dict[homolog_seq]  # Get homolog id from seq_dict
+                        seq_dict[chain_seq] = homolog_id  # Set this sequence with the homolog id as value
+                        chain.id = homolog_id   # Also change chain id to homolog's
+                    else:
+                        new_id = get_new_id(seq_dict.values())  # Otherwise generate a new id
+                        seq_dict[chain_seq] = new_id
+                        chain.id = new_id
+            else:
+                chain.id = seq_dict[chain_seq]  # If chain is already in seq_dict, update chain object id
+            model.add(chain)
+        pdbmodels[i] = model  # Update pdbmodels list with the updated model
+    if verbose:
+        print("Ids unified")
+    return seq_dict
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+      
+  <div class="item">
+    <div class="name def" id="MB.MacroB.update_interactions_dict">
+    <p>def <span class="ident">update_interactions_dict</span>(</p><p>interaction_dict, verbose=False)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Updates the interactions attribute of each chain inside the dictionary</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.MacroB.update_interactions_dict', this);">Show source &equiv;</a></p>
+  <div id="source-MB.MacroB.update_interactions_dict" class="source">
+    <pre><code>def update_interactions_dict(interaction_dict, verbose=False):
+    """Updates the interactions attribute of each chain inside the dictionary"""
+    if verbose:
+        print("Updating interaction dictionary...")
+    for chain in interaction_dict:
+        for interaction_tple in interaction_dict[chain]:
+            chain1, chain2, ref_inter = interaction_dict[chain][interaction_tple] # De-packs the interaction tuple value
+            # Generates a list with all interactions of that key minus the current one
+            chain1_filtered_interactions_lst = [x for x in interaction_dict[chain1.id].keys() if x != interaction_tple]
+            # Updates chain_interaction attribute with the list of interaction tuples
+            chain1.add_interaction_lst(chain1_filtered_interactions_lst)
+            # Generates a list with all interactions minus the one from chain2 to chain1
+            chain2_filtered_interactions_lst = [x for x in interaction_dict[chain2.id].keys() if x != ref_inter]
+            chain2.add_interaction_lst(chain2_filtered_interactions_lst)
+            parent = chain1.get_parent()
+            parent.child_list = [chain1, chain2] # Updates the model chains with these new updated chains
+            interaction_dict[chain][interaction_tple] = chain1, chain2 # Updates the dictionary value
+            # (now without the interaction from chain 2 to 1)
+    if verbose:
+        print("Interaction dictionary updated")
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+
+
+  </section>
+
+    </article>
+  <div class="clear"> </div>
+  <footer id="footer">
+    <p>
+      Documentation generated by
+      <a href="https://github.com/BurntSushi/pdoc">pdoc 0.3.2</a>
+    </p>
+
+    <p>pdoc is in the public domain with the
+      <a href="http://unlicense.org">UNLICENSE</a></p>
+
+    <p>Design by <a href="http://nadh.in">Kailash Nadh</a></p>
+  </footer>
+</div>
+</body>
+</html>

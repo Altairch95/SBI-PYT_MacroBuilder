@@ -1,0 +1,2607 @@
+<!doctype html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+
+    <title>MB.CustomPDB API documentation</title>
+    <meta name="description" content="" />
+
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
+  
+  <style type="text/css">
+  
+* {
+  box-sizing: border-box;
+}
+/*! normalize.css v1.1.1 | MIT License | git.io/normalize */
+
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Correct `block` display not defined in IE 6/7/8/9 and Firefox 3.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+    display: block;
+}
+
+/**
+ * Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
+ */
+
+audio,
+canvas,
+video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+/**
+ * Address styling not present in IE 7/8/9, Firefox 3, and Safari 4.
+ * Known issue: no IE 6 support.
+ */
+
+[hidden] {
+    display: none;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+/**
+ * 1. Prevent system color scheme's background color being used in Firefox, IE,
+ *    and Opera.
+ * 2. Prevent system color scheme's text color being used in Firefox, IE, and
+ *    Opera.
+ * 3. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
+ *    `em` units.
+ * 4. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {
+    background: #fff; /* 1 */
+    color: #000; /* 2 */
+    font-size: 100%; /* 3 */
+    -webkit-text-size-adjust: 100%; /* 4 */
+    -ms-text-size-adjust: 100%; /* 4 */
+}
+
+/**
+ * Address `font-family` inconsistency between `textarea` and other form
+ * elements.
+ */
+
+html,
+button,
+input,
+select,
+textarea {
+    font-family: sans-serif;
+}
+
+/**
+ * Address margins handled incorrectly in IE 6/7.
+ */
+
+body {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+/**
+ * Address `outline` inconsistency between Chrome and other browsers.
+ */
+
+a:focus {
+    outline: thin dotted;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+
+a:active,
+a:hover {
+    outline: 0;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+/**
+ * Address font sizes and margins set differently in IE 6/7.
+ * Address font sizes within `section` and `article` in Firefox 4+, Safari 5,
+ * and Chrome.
+ */
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin: 0.83em 0;
+}
+
+h3 {
+    font-size: 1.17em;
+    margin: 1em 0;
+}
+
+h4 {
+    font-size: 1em;
+    margin: 1.33em 0;
+}
+
+h5 {
+    font-size: 0.83em;
+    margin: 1.67em 0;
+}
+
+h6 {
+    font-size: 0.67em;
+    margin: 2.33em 0;
+}
+
+/**
+ * Address styling not present in IE 7/8/9, Safari 5, and Chrome.
+ */
+
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 3+, Safari 4/5, and Chrome.
+ */
+
+b,
+strong {
+    font-weight: bold;
+}
+
+blockquote {
+    margin: 1em 40px;
+}
+
+/**
+ * Address styling not present in Safari 5 and Chrome.
+ */
+
+dfn {
+    font-style: italic;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ * Known issue: no IE 6/7 normalization.
+ */
+
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+}
+
+/**
+ * Address styling not present in IE 6/7/8/9.
+ */
+
+mark {
+    background: #ff0;
+    color: #000;
+}
+
+/**
+ * Address margins set differently in IE 6/7.
+ */
+
+p,
+pre {
+    margin: 1em 0;
+}
+
+/**
+ * Correct font family set oddly in IE 6, Safari 4/5, and Chrome.
+ */
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, serif;
+    _font-family: 'courier new', monospace;
+    font-size: 1em;
+}
+
+/**
+ * Improve readability of pre-formatted text in all browsers.
+ */
+
+pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/**
+ * Address CSS quotes not supported in IE 6/7.
+ */
+
+q {
+    quotes: none;
+}
+
+/**
+ * Address `quotes` property not supported in Safari 4.
+ */
+
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+    font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+/* ==========================================================================
+   Lists
+   ========================================================================== */
+
+/**
+ * Address margins set differently in IE 6/7.
+ */
+
+dl,
+menu,
+ol,
+ul {
+    margin: 1em 0;
+}
+
+dd {
+    margin: 0 0 0 40px;
+}
+
+/**
+ * Address paddings set differently in IE 6/7.
+ */
+
+menu,
+ol,
+ul {
+    padding: 0 0 0 40px;
+}
+
+/**
+ * Correct list images handled incorrectly in IE 7.
+ */
+
+nav ul,
+nav ol {
+    list-style: none;
+    list-style-image: none;
+}
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+
+/**
+ * 1. Remove border when inside `a` element in IE 6/7/8/9 and Firefox 3.
+ * 2. Improve image quality when scaled in IE 7.
+ */
+
+img {
+    border: 0; /* 1 */
+    -ms-interpolation-mode: bicubic; /* 2 */
+}
+
+/**
+ * Correct overflow displayed oddly in IE 9.
+ */
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+
+/**
+ * Address margin not present in IE 6/7/8/9, Safari 5, and Opera 11.
+ */
+
+figure {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+
+/**
+ * Correct margin displayed oddly in IE 6/7.
+ */
+
+form {
+    margin: 0;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct color not being inherited in IE 6/7/8/9.
+ * 2. Correct text not wrapping in Firefox 3.
+ * 3. Correct alignment displayed oddly in IE 6/7.
+ */
+
+legend {
+    border: 0; /* 1 */
+    padding: 0;
+    white-space: normal; /* 2 */
+    *margin-left: -7px; /* 3 */
+}
+
+/**
+ * 1. Correct font size not being inherited in all browsers.
+ * 2. Address margins set differently in IE 6/7, Firefox 3+, Safari 5,
+ *    and Chrome.
+ * 3. Improve appearance and consistency in all browsers.
+ */
+
+button,
+input,
+select,
+textarea {
+    font-size: 100%; /* 1 */
+    margin: 0; /* 2 */
+    vertical-align: baseline; /* 3 */
+    *vertical-align: middle; /* 3 */
+}
+
+/**
+ * Address Firefox 3+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+button,
+input {
+    line-height: normal;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 6+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+
+button,
+select {
+    text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ * 4. Remove inner spacing in IE 7 without affecting normal text inputs.
+ *    Known issue: inner spacing remains in IE 6.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button; /* 2 */
+    cursor: pointer; /* 3 */
+    *overflow: visible;  /* 4 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+    cursor: default;
+}
+
+/**
+ * 1. Address box sizing set to content-box in IE 8/9.
+ * 2. Remove excess padding in IE 8/9.
+ * 3. Remove excess padding in IE 7.
+ *    Known issue: excess padding remains in IE 6.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box; /* 1 */
+    padding: 0; /* 2 */
+    *height: 13px; /* 3 */
+    *width: 13px; /* 3 */
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+    -webkit-appearance: textfield; /* 1 */
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box; /* 2 */
+    box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+/**
+ * Remove inner padding and border in Firefox 3+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+/**
+ * 1. Remove default vertical scrollbar in IE 6/7/8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+
+textarea {
+    overflow: auto; /* 1 */
+    vertical-align: top; /* 2 */
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+  </style>
+
+  <style type="text/css">
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+  }
+  body {
+    background: #fff;
+    font-family: "Source Sans Pro", "Helvetica Neueue", Helvetica, sans;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.6em;
+  }
+  #content {
+    width: 70%;
+    max-width: 850px;
+    float: left;
+    padding: 30px 60px;
+    border-left: 1px solid #ddd;
+  }
+  #sidebar {
+    width: 25%;
+    float: left;
+    padding: 30px;
+    overflow: hidden;
+  }
+  #nav {
+    font-size: 130%;
+    margin: 0 0 15px 0;
+  }
+
+  #top {
+    display: block;
+    position: fixed;
+    bottom: 5px;
+    left: 5px;
+    font-size: .85em;
+    text-transform: uppercase;
+  }
+
+  #footer {
+    font-size: .75em;
+    padding: 5px 30px;
+    border-top: 1px solid #ddd;
+    text-align: right;
+  }
+    #footer p {
+      margin: 0 0 0 30px;
+      display: inline-block;
+    }
+
+  h1, h2, h3, h4, h5 {
+    font-weight: 300;
+  }
+  h1 {
+    font-size: 2.5em;
+    line-height: 1.1em;
+    margin: 0 0 .50em 0;
+  }
+
+  h2 {
+    font-size: 1.75em;
+    margin: 1em 0 .50em 0;
+  }
+
+  h3 {
+    margin: 25px 0 10px 0;
+  }
+
+  h4 {
+    margin: 0;
+    font-size: 105%;
+  }
+
+  a {
+    color: #058;
+    text-decoration: none;
+    transition: color .3s ease-in-out;
+  }
+
+  a:hover {
+    color: #e08524;
+    transition: color .3s ease-in-out;
+  }
+
+  pre, code, .mono, .name {
+    font-family: "Ubuntu Mono", "Cousine", "DejaVu Sans Mono", monospace;
+  }
+
+  .title .name {
+    font-weight: bold;
+  }
+  .section-title {
+    margin-top: 2em;
+  }
+  .ident {
+    color: #900;
+  }
+
+  code {
+    background: #f9f9f9;
+  } 
+
+  pre {
+    background: #fefefe;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 0 #f3f3f3;
+    margin: 0 30px;
+    padding: 15px 30px;
+  }
+
+  .codehilite {
+    margin: 0 30px 10px 30px;
+  }
+
+    .codehilite pre {
+      margin: 0;
+    }
+    .codehilite .err { background: #ff3300; color: #fff !important; } 
+
+  table#module-list {
+    font-size: 110%;
+  }
+
+    table#module-list tr td:first-child {
+      padding-right: 10px;
+      white-space: nowrap;
+    }
+
+    table#module-list td {
+      vertical-align: top;
+      padding-bottom: 8px;
+    }
+
+      table#module-list td p {
+        margin: 0 0 7px 0;
+      }
+
+  .def {
+    display: table;
+  }
+
+    .def p {
+      display: table-cell;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    .def p:first-child {
+      white-space: nowrap;
+    }
+
+    .def p:last-child {
+      width: 100%;
+    }
+
+
+  #index {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+    ul#index .class_name {
+      /* font-size: 110%; */
+      font-weight: bold;
+    }
+    #index ul {
+      margin: 0;
+    }
+
+  .item {
+    margin: 0 0 15px 0;
+  }
+
+    .item .class {
+      margin: 0 0 25px 30px;
+    }
+
+      .item .class ul.class_list {
+        margin: 0 0 20px 0;
+      }
+
+    .item .name {
+      background: #fafafa;
+      margin: 0;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 3px;
+      display: inline-block;
+      min-width: 40%;
+    }
+      .item .name:hover {
+        background: #f6f6f6;
+      }
+
+    .item .empty_desc {
+      margin: 0 0 5px 0;
+      padding: 0;
+    }
+
+    .item .inheritance {
+      margin: 3px 0 0 30px;
+    }
+
+    .item .inherited {
+      color: #666;
+    }
+
+    .item .desc {
+      padding: 0 8px;
+      margin: 0;
+    }
+
+      .item .desc p {
+        margin: 0 0 10px 0;
+      }
+
+    .source_cont {
+      margin: 0;
+      padding: 0;
+    }
+
+    .source_link a {
+      background: #ffc300;
+      font-weight: 400;
+      font-size: .75em;
+      text-transform: uppercase;
+      color: #fff;
+      text-shadow: 1px 1px 0 #f4b700;
+      
+      padding: 3px 8px;
+      border-radius: 2px;
+      transition: background .3s ease-in-out;
+    }
+      .source_link a:hover {
+        background: #FF7200;
+        text-shadow: none;
+        transition: background .3s ease-in-out;
+      }
+
+    .source {
+      display: none;
+      max-height: 600px;
+      overflow-y: scroll;
+      margin-bottom: 15px;
+    }
+
+      .source .codehilite {
+        margin: 0;
+      }
+
+  .desc h1, .desc h2, .desc h3 {
+    font-size: 100% !important;
+  }
+  .clear {
+    clear: both;
+  }
+
+  @media all and (max-width: 950px) {
+    #sidebar {
+      width: 35%;
+    }
+    #content {
+      width: 65%;
+    }
+  }
+  @media all and (max-width: 650px) {
+    #top {
+      display: none;
+    }
+    #sidebar {
+      float: none;
+      width: auto;
+    }
+    #content {
+      float: none;
+      width: auto;
+      padding: 30px;
+    }
+
+    #index ul {
+      padding: 0;
+      margin-bottom: 15px;
+    }
+    #index ul li {
+      display: inline-block;
+      margin-right: 30px;
+    }
+    #footer {
+      text-align: left;
+    }
+    #footer p {
+      display: block;
+      margin: inherit;
+    }
+  }
+
+  /*****************************/
+
+  </style>
+
+
+  <style type="text/css">
+  
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
+
+  </style>
+
+  <script type="text/javascript">
+  function toggle(id, $link) {
+    $node = document.getElementById(id);
+    if (!$node)
+    return;
+    if (!$node.style.display || $node.style.display == 'none') {
+    $node.style.display = 'block';
+    $link.innerHTML = 'Hide source &nequiv;';
+    } else {
+    $node.style.display = 'none';
+    $link.innerHTML = 'Show source &equiv;';
+    }
+  }
+  </script>
+</head>
+<body>
+<a href="#" id="top">Top</a>
+
+<div id="container">
+    
+  
+  <div id="sidebar">
+    <h1>Index</h1>
+    <ul id="index">
+
+
+    <li class="set"><h3><a href="#header-classes">Classes</a></h3>
+      <ul>
+        <li class="mono">
+        <span class="class_name"><a href="#MB.CustomPDB.CustomChain">CustomChain</a></span>
+        
+          
+  <ul>
+    <li class="mono"><a href="#MB.CustomPDB.CustomChain.__init__">__init__</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomChain.add">add</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomChain.add_interaction_lst">add_interaction_lst</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomChain.copy">copy</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomChain.detach_child">detach_child</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomChain.detach_parent">detach_parent</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomChain.get_atoms">get_atoms</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomChain.get_common_atoms">get_common_atoms</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomChain.get_full_id">get_full_id</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomChain.get_id">get_id</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomChain.get_interactions">get_interactions</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomChain.get_iterator">get_iterator</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomChain.get_level">get_level</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomChain.get_list">get_list</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomChain.get_parent">get_parent</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomChain.get_residues">get_residues</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomChain.get_sequence">get_sequence</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomChain.get_unpacked_list">get_unpacked_list</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomChain.has_id">has_id</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomChain.insert">insert</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomChain.set_parent">set_parent</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomChain.transform">transform</a></li>
+  </ul>
+
+        </li>
+        <li class="mono">
+        <span class="class_name"><a href="#MB.CustomPDB.CustomModel">CustomModel</a></span>
+        
+          
+  <ul>
+    <li class="mono"><a href="#MB.CustomPDB.CustomModel.__init__">__init__</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomModel.add">add</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomModel.copy">copy</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomModel.detach_child">detach_child</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomModel.detach_parent">detach_parent</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomModel.get_atoms">get_atoms</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomModel.get_chains">get_chains</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomModel.get_full_id">get_full_id</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomModel.get_id">get_id</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomModel.get_iterator">get_iterator</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomModel.get_level">get_level</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomModel.get_list">get_list</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomModel.get_parent">get_parent</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomModel.get_residues">get_residues</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomModel.has_id">has_id</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomModel.insert">insert</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomModel.save_to_mmCIF">save_to_mmCIF</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomModel.set_parent">set_parent</a></li>
+    <li class="mono"><a href="#MB.CustomPDB.CustomModel.transform">transform</a></li>
+  </ul>
+
+        </li>
+      </ul>
+    </li>
+
+    </ul>
+  </div>
+
+    <article id="content">
+      
+  
+
+  
+
+
+  <header id="section-intro">
+  <h1 class="title"><span class="name">MB.CustomPDB</span> module</h1>
+  
+  
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB" class="source">
+    <pre><code>#!/usr/bin/env python
+# coding=utf-8
+from Bio.PDB.Structure import Structure
+from Bio.PDB.Model import Model
+from Bio.PDB.Chain import Chain
+import Bio.PDB.NeighborSearch
+import sys
+
+class CustomModel(Model):
+    """Custom biopython model class that allows models with more than one same id"""
+    def add(self, entity):
+        """Add a child to the Entity."""
+        entity.set_parent(self)
+        self.child_list.append(entity)
+
+    def save_to_mmCIF(self, out_name):
+        """Saves a model using the given output name in the cwd"""
+        io = Bio.PDB.MMCIFIO()
+        io.set_structure(self)
+        try:
+            io.save(out_name+".cif")
+            print(out_name+".cif saved")
+        except:
+            sys.stderr.write("Couldn't save models to current working directory. "
+                             "Make sure you have permission to write files")
+
+
+class CustomChain(Chain):
+    """Custom biopython's chain class with more flexibilty. The most important difference is the new attribute
+    interactions, a list of interacting residues that is crucial for the macrocomplex building."""
+    protein = {'CYS': 'C', 'ASP': 'D', 'SER': 'S', 'GLN': 'Q', 'LYS': 'K',
+               'ILE': 'I', 'PRO': 'P', 'THR': 'T', 'PHE': 'F', 'ASN': 'N',
+               'GLY': 'G', 'HIS': 'H', 'LEU': 'L', 'ARG': 'R', 'TRP': 'W',
+               'ALA': 'A', 'VAL': 'V', 'GLU': 'E', 'TYR': 'Y', 'MET': 'M', "UNK": "X"}
+    dna = {'DA': 'A', 'DC': 'C', 'DG': 'G', 'DT': 'T'}
+    rna = {'A': 'A', 'C': 'C', 'G': 'G', 'U': 'U'}
+
+    def __init__(self, chainObject):
+        self.child_list = chainObject.child_list
+        self._id = chainObject._id
+        self.parent = chainObject.parent
+        self.interactions = []  # Here there will be stored the chain's known interactions as tuple of residues
+        self.xtra = chainObject.xtra
+        self.level = chainObject.level
+        # The other attibutes are needed for biopython to be able to work.
+
+    def add_interaction_lst(self, lst):
+        """Sets the interactions attribute to a list of interaction tuples"""
+        self.interactions = lst
+
+    def get_interactions(self, other_chain):
+        """Compares the distance between the atoms of two chains and returns a tuple (chain1, chain2) of
+        interaction tuples (2,34,50...)"""
+        atom_list_1 = list(self.get_atoms())
+        atom_list_2 = list(other_chain.get_atoms())
+        ns = Bio.PDB.NeighborSearch(atom_list_2)  # Generates a neighbour search tree to speed up distance calculations
+        interaction_res_1 = set()
+        interaction_res_2 = set()
+        for atom in atom_list_1:
+            inter_atoms = ns.search(atom.coord, 3.5)  # List of atoms closer than 3.5 A than the given atom
+            if len(inter_atoms) > 0:  # If there is interacting atoms:
+                interaction_res_1.add(atom.get_parent().id[1])  # Add the corresponding atom's residue to the set
+                for iatom in inter_atoms:
+                    interaction_res_2.add(iatom.get_parent().id[1]) # Same for the other interacting atoms
+        return tuple(sorted(interaction_res_1)), tuple(sorted(interaction_res_2))  # Transform to tuples and return
+
+    def get_sequence(self):
+        """Returns the chain's sequence, it can be a protein, DNA or RNA sequence"""
+        seq = ""
+        flag = "prot"
+        first_residue_name = self.child_list[0].resname.strip()  # Get the first residue name to see what kind
+        # of sequence it is
+        if first_residue_name not in self.protein:  # If residue name isn't in protein name dictionary
+            if "D" in first_residue_name:  # If the residue name has letter D, it means it's DNA
+                flag = "dna"
+            else:
+                flag = "rna"  # Otherwise it means it's a RNA sequence
+        if flag == "prot":  # If the sequence is a protein, use the protein dictionary
+            for res in self:
+                if res.id[0] == " ":
+                    seq += self.protein[res.resname]
+        elif flag == "dna":  # If its DNA, use the corresponding dictionary
+            for res in self:
+                if res.id[0] == " ":
+                    seq += self.dna[res.resname.strip()]
+        else:
+            for res in self:  # Same for RNA
+                if res.id[0] == " ":
+                    seq += self.rna[res.resname.strip()]
+        return seq
+
+    def get_common_atoms(self, other):
+        """Compares the list of atoms of two chains and returns an even tuple of atoms"""
+        self_atoms = sorted(self.get_atoms())  # Generates a sorted list of atoms to be able to compare them
+        other_atoms = sorted(other.get_atoms())
+        len_self = len(self_atoms)
+        len_other = len(other_atoms)
+        # Return the atom list sliced by the limitant distance
+        if len_self > len_other:
+            return self_atoms[:len_other], other_atoms
+        elif len_other > len_self:
+            return self_atoms, other_atoms[:len_self]
+        else: # If they are equal, just return the atoms lists
+            return self_atoms, other_atoms
+</code></pre>
+  </div>
+
+  </header>
+
+  <section id="section-items">
+
+
+    <h2 class="section-title" id="header-classes">Classes</h2>
+      
+      <div class="item">
+      <p id="MB.CustomPDB.CustomChain" class="name">class <span class="ident">CustomChain</span></p>
+      
+  
+    <div class="desc"><p>Custom biopython's chain class with more flexibilty. The most important difference is the new attribute
+interactions, a list of interacting residues that is crucial for the macrocomplex building.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomChain', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomChain" class="source">
+    <pre><code>class CustomChain(Chain):
+    """Custom biopython's chain class with more flexibilty. The most important difference is the new attribute
+    interactions, a list of interacting residues that is crucial for the macrocomplex building."""
+    protein = {'CYS': 'C', 'ASP': 'D', 'SER': 'S', 'GLN': 'Q', 'LYS': 'K',
+               'ILE': 'I', 'PRO': 'P', 'THR': 'T', 'PHE': 'F', 'ASN': 'N',
+               'GLY': 'G', 'HIS': 'H', 'LEU': 'L', 'ARG': 'R', 'TRP': 'W',
+               'ALA': 'A', 'VAL': 'V', 'GLU': 'E', 'TYR': 'Y', 'MET': 'M', "UNK": "X"}
+    dna = {'DA': 'A', 'DC': 'C', 'DG': 'G', 'DT': 'T'}
+    rna = {'A': 'A', 'C': 'C', 'G': 'G', 'U': 'U'}
+
+    def __init__(self, chainObject):
+        self.child_list = chainObject.child_list
+        self._id = chainObject._id
+        self.parent = chainObject.parent
+        self.interactions = []  # Here there will be stored the chain's known interactions as tuple of residues
+        self.xtra = chainObject.xtra
+        self.level = chainObject.level
+        # The other attibutes are needed for biopython to be able to work.
+
+    def add_interaction_lst(self, lst):
+        """Sets the interactions attribute to a list of interaction tuples"""
+        self.interactions = lst
+
+    def get_interactions(self, other_chain):
+        """Compares the distance between the atoms of two chains and returns a tuple (chain1, chain2) of
+        interaction tuples (2,34,50...)"""
+        atom_list_1 = list(self.get_atoms())
+        atom_list_2 = list(other_chain.get_atoms())
+        ns = Bio.PDB.NeighborSearch(atom_list_2)  # Generates a neighbour search tree to speed up distance calculations
+        interaction_res_1 = set()
+        interaction_res_2 = set()
+        for atom in atom_list_1:
+            inter_atoms = ns.search(atom.coord, 3.5)  # List of atoms closer than 3.5 A than the given atom
+            if len(inter_atoms) > 0:  # If there is interacting atoms:
+                interaction_res_1.add(atom.get_parent().id[1])  # Add the corresponding atom's residue to the set
+                for iatom in inter_atoms:
+                    interaction_res_2.add(iatom.get_parent().id[1]) # Same for the other interacting atoms
+        return tuple(sorted(interaction_res_1)), tuple(sorted(interaction_res_2))  # Transform to tuples and return
+
+    def get_sequence(self):
+        """Returns the chain's sequence, it can be a protein, DNA or RNA sequence"""
+        seq = ""
+        flag = "prot"
+        first_residue_name = self.child_list[0].resname.strip()  # Get the first residue name to see what kind
+        # of sequence it is
+        if first_residue_name not in self.protein:  # If residue name isn't in protein name dictionary
+            if "D" in first_residue_name:  # If the residue name has letter D, it means it's DNA
+                flag = "dna"
+            else:
+                flag = "rna"  # Otherwise it means it's a RNA sequence
+        if flag == "prot":  # If the sequence is a protein, use the protein dictionary
+            for res in self:
+                if res.id[0] == " ":
+                    seq += self.protein[res.resname]
+        elif flag == "dna":  # If its DNA, use the corresponding dictionary
+            for res in self:
+                if res.id[0] == " ":
+                    seq += self.dna[res.resname.strip()]
+        else:
+            for res in self:  # Same for RNA
+                if res.id[0] == " ":
+                    seq += self.rna[res.resname.strip()]
+        return seq
+
+    def get_common_atoms(self, other):
+        """Compares the list of atoms of two chains and returns an even tuple of atoms"""
+        self_atoms = sorted(self.get_atoms())  # Generates a sorted list of atoms to be able to compare them
+        other_atoms = sorted(other.get_atoms())
+        len_self = len(self_atoms)
+        len_other = len(other_atoms)
+        # Return the atom list sliced by the limitant distance
+        if len_self > len_other:
+            return self_atoms[:len_other], other_atoms
+        elif len_other > len_self:
+            return self_atoms, other_atoms[:len_self]
+        else: # If they are equal, just return the atoms lists
+            return self_atoms, other_atoms
+</code></pre>
+  </div>
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#MB.CustomPDB.CustomChain">CustomChain</a></li>
+          <li>Bio.PDB.Chain.Chain</li>
+          <li>Bio.PDB.Entity.Entity</li>
+          <li>builtins.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="MB.CustomPDB.CustomChain.dna" class="name">var <span class="ident">dna</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="MB.CustomPDB.CustomChain.protein" class="name">var <span class="ident">protein</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="MB.CustomPDB.CustomChain.rna" class="name">var <span class="ident">rna</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+          <h3>Static methods</h3>
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomChain.__init__">
+    <p>def <span class="ident">__init__</span>(</p><p>self, chainObject)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Initialize the class.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomChain.__init__', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomChain.__init__" class="source">
+    <pre><code>def __init__(self, chainObject):
+    self.child_list = chainObject.child_list
+    self._id = chainObject._id
+    self.parent = chainObject.parent
+    self.interactions = []  # Here there will be stored the chain's known interactions as tuple of residues
+    self.xtra = chainObject.xtra
+    self.level = chainObject.level
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomChain.add">
+    <p>def <span class="ident">add</span>(</p><p>self, entity)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Add a child to the Entity.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomChain.add', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomChain.add" class="source">
+    <pre><code>def add(self, entity):
+    """Add a child to the Entity."""
+    entity_id = entity.get_id()
+    if self.has_id(entity_id):
+        raise PDBConstructionException(
+            "%s defined twice" % str(entity_id))
+    entity.set_parent(self)
+    self.child_list.append(entity)
+    self.child_dict[entity_id] = entity
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomChain.add_interaction_lst">
+    <p>def <span class="ident">add_interaction_lst</span>(</p><p>self, lst)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Sets the interactions attribute to a list of interaction tuples</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomChain.add_interaction_lst', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomChain.add_interaction_lst" class="source">
+    <pre><code>def add_interaction_lst(self, lst):
+    """Sets the interactions attribute to a list of interaction tuples"""
+    self.interactions = lst
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomChain.copy">
+    <p>def <span class="ident">copy</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Copy entity recursively.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomChain.copy', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomChain.copy" class="source">
+    <pre><code>def copy(self):
+    """Copy entity recursively."""
+    shallow = copy(self)
+    shallow.child_list = []
+    shallow.child_dict = {}
+    shallow.xtra = copy(self.xtra)
+    shallow.detach_parent()
+    for child in self.child_list:
+        shallow.add(child.copy())
+    return shallow
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomChain.detach_child">
+    <p>def <span class="ident">detach_child</span>(</p><p>self, id)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Remove a child.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomChain.detach_child', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomChain.detach_child" class="source">
+    <pre><code>def detach_child(self, id):
+    """Remove a child."""
+    child = self.child_dict[id]
+    child.detach_parent()
+    del self.child_dict[id]
+    self.child_list.remove(child)
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomChain.detach_parent">
+    <p>def <span class="ident">detach_parent</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Detach the parent.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomChain.detach_parent', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomChain.detach_parent" class="source">
+    <pre><code>def detach_parent(self):
+    """Detach the parent."""
+    self.parent = None
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomChain.get_atoms">
+    <p>def <span class="ident">get_atoms</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return atoms from residues.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomChain.get_atoms', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomChain.get_atoms" class="source">
+    <pre><code>def get_atoms(self):
+    """Return atoms from residues."""
+    for r in self.get_residues():
+        for a in r:
+            yield a
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomChain.get_common_atoms">
+    <p>def <span class="ident">get_common_atoms</span>(</p><p>self, other)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Compares the list of atoms of two chains and returns an even tuple of atoms</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomChain.get_common_atoms', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomChain.get_common_atoms" class="source">
+    <pre><code>def get_common_atoms(self, other):
+    """Compares the list of atoms of two chains and returns an even tuple of atoms"""
+    self_atoms = sorted(self.get_atoms())  # Generates a sorted list of atoms to be able to compare them
+    other_atoms = sorted(other.get_atoms())
+    len_self = len(self_atoms)
+    len_other = len(other_atoms)
+    # Return the atom list sliced by the limitant distance
+    if len_self > len_other:
+        return self_atoms[:len_other], other_atoms
+    elif len_other > len_self:
+        return self_atoms, other_atoms[:len_self]
+    else: # If they are equal, just return the atoms lists
+        return self_atoms, other_atoms
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomChain.get_full_id">
+    <p>def <span class="ident">get_full_id</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return the full id.</p>
+<p>The full id is a tuple containing all id's starting from
+the top object (Structure) down to the current object. A full id for
+a Residue object e.g. is something like:</p>
+<p>("1abc", 0, "A", (" ", 10, "A"))</p>
+<p>This corresponds to:</p>
+<p>Structure with id "1abc"
+Model with id 0
+Chain with id "A"
+Residue with id (" ", 10, "A")</p>
+<p>The Residue id indicates that the residue is not a hetero-residue
+(or a water) because it has a blank hetero field, that its sequence
+identifier is 10 and its insertion code "A".</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomChain.get_full_id', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomChain.get_full_id" class="source">
+    <pre><code>def get_full_id(self):
+    """Return the full id.
+    The full id is a tuple containing all id's starting from
+    the top object (Structure) down to the current object. A full id for
+    a Residue object e.g. is something like:
+    ("1abc", 0, "A", (" ", 10, "A"))
+    This corresponds to:
+    Structure with id "1abc"
+    Model with id 0
+    Chain with id "A"
+    Residue with id (" ", 10, "A")
+    The Residue id indicates that the residue is not a hetero-residue
+    (or a water) because it has a blank hetero field, that its sequence
+    identifier is 10 and its insertion code "A".
+    """
+    if self.full_id is None:
+        self._reset_full_id()
+    return self.full_id
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomChain.get_id">
+    <p>def <span class="ident">get_id</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return the id.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomChain.get_id', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomChain.get_id" class="source">
+    <pre><code>def get_id(self):
+    """Return the id."""
+    return self.id
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomChain.get_interactions">
+    <p>def <span class="ident">get_interactions</span>(</p><p>self, other_chain)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Compares the distance between the atoms of two chains and returns a tuple (chain1, chain2) of
+interaction tuples (2,34,50...)</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomChain.get_interactions', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomChain.get_interactions" class="source">
+    <pre><code>def get_interactions(self, other_chain):
+    """Compares the distance between the atoms of two chains and returns a tuple (chain1, chain2) of
+    interaction tuples (2,34,50...)"""
+    atom_list_1 = list(self.get_atoms())
+    atom_list_2 = list(other_chain.get_atoms())
+    ns = Bio.PDB.NeighborSearch(atom_list_2)  # Generates a neighbour search tree to speed up distance calculations
+    interaction_res_1 = set()
+    interaction_res_2 = set()
+    for atom in atom_list_1:
+        inter_atoms = ns.search(atom.coord, 3.5)  # List of atoms closer than 3.5 A than the given atom
+        if len(inter_atoms) > 0:  # If there is interacting atoms:
+            interaction_res_1.add(atom.get_parent().id[1])  # Add the corresponding atom's residue to the set
+            for iatom in inter_atoms:
+                interaction_res_2.add(iatom.get_parent().id[1]) # Same for the other interacting atoms
+    return tuple(sorted(interaction_res_1)), tuple(sorted(interaction_res_2))  # Transform to tuples and return
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomChain.get_iterator">
+    <p>def <span class="ident">get_iterator</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return iterator over children.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomChain.get_iterator', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomChain.get_iterator" class="source">
+    <pre><code>def get_iterator(self):
+    """Return iterator over children."""
+    for child in self.child_list:
+        yield child
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomChain.get_level">
+    <p>def <span class="ident">get_level</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return level in hierarchy.</p>
+<p>A - atom
+R - residue
+C - chain
+M - model
+S - structure</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomChain.get_level', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomChain.get_level" class="source">
+    <pre><code>def get_level(self):
+    """Return level in hierarchy.
+    A - atom
+    R - residue
+    C - chain
+    M - model
+    S - structure
+    """
+    return self.level
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomChain.get_list">
+    <p>def <span class="ident">get_list</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return a copy of the list of children.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomChain.get_list', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomChain.get_list" class="source">
+    <pre><code>def get_list(self):
+    """Return a copy of the list of children."""
+    return copy(self.child_list)
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomChain.get_parent">
+    <p>def <span class="ident">get_parent</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return the parent Entity object.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomChain.get_parent', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomChain.get_parent" class="source">
+    <pre><code>def get_parent(self):
+    """Return the parent Entity object."""
+    return self.parent
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomChain.get_residues">
+    <p>def <span class="ident">get_residues</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return residues.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomChain.get_residues', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomChain.get_residues" class="source">
+    <pre><code>def get_residues(self):
+    """Return residues."""
+    for r in self:
+        yield r
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomChain.get_sequence">
+    <p>def <span class="ident">get_sequence</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Returns the chain's sequence, it can be a protein, DNA or RNA sequence</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomChain.get_sequence', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomChain.get_sequence" class="source">
+    <pre><code>def get_sequence(self):
+    """Returns the chain's sequence, it can be a protein, DNA or RNA sequence"""
+    seq = ""
+    flag = "prot"
+    first_residue_name = self.child_list[0].resname.strip()  # Get the first residue name to see what kind
+    # of sequence it is
+    if first_residue_name not in self.protein:  # If residue name isn't in protein name dictionary
+        if "D" in first_residue_name:  # If the residue name has letter D, it means it's DNA
+            flag = "dna"
+        else:
+            flag = "rna"  # Otherwise it means it's a RNA sequence
+    if flag == "prot":  # If the sequence is a protein, use the protein dictionary
+        for res in self:
+            if res.id[0] == " ":
+                seq += self.protein[res.resname]
+    elif flag == "dna":  # If its DNA, use the corresponding dictionary
+        for res in self:
+            if res.id[0] == " ":
+                seq += self.dna[res.resname.strip()]
+    else:
+        for res in self:  # Same for RNA
+            if res.id[0] == " ":
+                seq += self.rna[res.resname.strip()]
+    return seq
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomChain.get_unpacked_list">
+    <p>def <span class="ident">get_unpacked_list</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return a list of undisordered residues.</p>
+<p>Some Residue objects hide several disordered residues
+(DisorderedResidue objects). This method unpacks them,
+ie. it returns a list of simple Residue objects.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomChain.get_unpacked_list', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomChain.get_unpacked_list" class="source">
+    <pre><code>def get_unpacked_list(self):
+    """Return a list of undisordered residues.
+    Some Residue objects hide several disordered residues
+    (DisorderedResidue objects). This method unpacks them,
+    ie. it returns a list of simple Residue objects.
+    """
+    unpacked_list = []
+    for residue in self.get_list():
+        if residue.is_disordered() == 2:
+            for dresidue in residue.disordered_get_list():
+                unpacked_list.append(dresidue)
+        else:
+            unpacked_list.append(residue)
+    return unpacked_list
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomChain.has_id">
+    <p>def <span class="ident">has_id</span>(</p><p>self, id)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return 1 if a residue with given id is present.</p>
+<p>The id of a residue is (hetero flag, sequence identifier, insertion code).</p>
+<p>If id is an int, it is translated to (" ", id, " ") by the _translate_id
+method.</p>
+<p>Arguments:</p>
+<ul>
+<li>id - (string, int, string) or int</li>
+</ul></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomChain.has_id', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomChain.has_id" class="source">
+    <pre><code>def has_id(self, id):
+    """Return 1 if a residue with given id is present.
+    The id of a residue is (hetero flag, sequence identifier, insertion code).
+    If id is an int, it is translated to (" ", id, " ") by the _translate_id
+    method.
+    Arguments:
+    - id - (string, int, string) or int
+    """
+    id = self._translate_id(id)
+    return Entity.has_id(self, id)
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomChain.insert">
+    <p>def <span class="ident">insert</span>(</p><p>self, pos, entity)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Add a child to the Entity at a specified position.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomChain.insert', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomChain.insert" class="source">
+    <pre><code>def insert(self, pos, entity):
+    """Add a child to the Entity at a specified position."""
+    entity_id = entity.get_id()
+    if self.has_id(entity_id):
+        raise PDBConstructionException(
+            "%s defined twice" % str(entity_id))
+    entity.set_parent(self)
+    self.child_list[pos:pos] = [entity]
+    self.child_dict[entity_id] = entity
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomChain.set_parent">
+    <p>def <span class="ident">set_parent</span>(</p><p>self, entity)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Set the parent Entity object.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomChain.set_parent', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomChain.set_parent" class="source">
+    <pre><code>def set_parent(self, entity):
+    """Set the parent Entity object."""
+    self.parent = entity
+    self._reset_full_id()
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomChain.transform">
+    <p>def <span class="ident">transform</span>(</p><p>self, rot, tran)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Apply rotation and translation to the atomic coordinates.</p>
+<p>:param rot: A right multiplying rotation matrix
+:type rot: 3x3 Numeric array</p>
+<p>:param tran: the translation vector
+:type tran: size 3 Numeric array</p>
+<h2>Examples</h2>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>rotation = rotmat(pi, Vector(1, 0, 0))
+translation = array((0, 0, 1), 'f')
+entity.transform(rotation, translation)</p>
+</blockquote>
+</blockquote>
+</blockquote></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomChain.transform', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomChain.transform" class="source">
+    <pre><code>def transform(self, rot, tran):
+    """Apply rotation and translation to the atomic coordinates.
+    :param rot: A right multiplying rotation matrix
+    :type rot: 3x3 Numeric array
+    :param tran: the translation vector
+    :type tran: size 3 Numeric array
+    Examples
+    --------
+    >>> rotation = rotmat(pi, Vector(1, 0, 0))
+    >>> translation = array((0, 0, 1), 'f')
+    >>> entity.transform(rotation, translation)
+    """
+    for o in self.get_list():
+        o.transform(rot, tran)
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+          <h3>Instance variables</h3>
+            <div class="item">
+            <p id="MB.CustomPDB.CustomChain.child_list" class="name">var <span class="ident">child_list</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="MB.CustomPDB.CustomChain.id" class="name">var <span class="ident">id</span></p>
+            
+
+            
+  
+    <div class="desc"><p>Return identifier.</p></div>
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="MB.CustomPDB.CustomChain.interactions" class="name">var <span class="ident">interactions</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="MB.CustomPDB.CustomChain.level" class="name">var <span class="ident">level</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="MB.CustomPDB.CustomChain.parent" class="name">var <span class="ident">parent</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="MB.CustomPDB.CustomChain.xtra" class="name">var <span class="ident">xtra</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+      
+      <div class="item">
+      <p id="MB.CustomPDB.CustomModel" class="name">class <span class="ident">CustomModel</span></p>
+      
+  
+    <div class="desc"><p>Custom biopython model class that allows models with more than one same id</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomModel', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomModel" class="source">
+    <pre><code>class CustomModel(Model):
+    """Custom biopython model class that allows models with more than one same id"""
+    def add(self, entity):
+        """Add a child to the Entity."""
+        entity.set_parent(self)
+        self.child_list.append(entity)
+
+    def save_to_mmCIF(self, out_name):
+        """Saves a model using the given output name in the cwd"""
+        io = Bio.PDB.MMCIFIO()
+        io.set_structure(self)
+        try:
+            io.save(out_name+".cif")
+            print(out_name+".cif saved")
+        except:
+            sys.stderr.write("Couldn't save models to current working directory. "
+                             "Make sure you have permission to write files")
+</code></pre>
+  </div>
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#MB.CustomPDB.CustomModel">CustomModel</a></li>
+          <li>Bio.PDB.Model.Model</li>
+          <li>Bio.PDB.Entity.Entity</li>
+          <li>builtins.object</li>
+          </ul>
+          <h3>Static methods</h3>
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomModel.__init__">
+    <p>def <span class="ident">__init__</span>(</p><p>self, id, serial_num=None)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Initialize.</p>
+<p>Arguments:
+ - id - int
+ - serial_num - int</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomModel.__init__', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomModel.__init__" class="source">
+    <pre><code>def __init__(self, id, serial_num=None):
+    """Initialize.
+    Arguments:
+     - id - int
+     - serial_num - int
+    """
+    self.level = "M"
+    if serial_num is None:
+        self.serial_num = id
+    else:
+        self.serial_num = serial_num
+    Entity.__init__(self, id)
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomModel.add">
+    <p>def <span class="ident">add</span>(</p><p>self, entity)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Add a child to the Entity.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomModel.add', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomModel.add" class="source">
+    <pre><code>def add(self, entity):
+    """Add a child to the Entity."""
+    entity.set_parent(self)
+    self.child_list.append(entity)
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomModel.copy">
+    <p>def <span class="ident">copy</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Copy entity recursively.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomModel.copy', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomModel.copy" class="source">
+    <pre><code>def copy(self):
+    """Copy entity recursively."""
+    shallow = copy(self)
+    shallow.child_list = []
+    shallow.child_dict = {}
+    shallow.xtra = copy(self.xtra)
+    shallow.detach_parent()
+    for child in self.child_list:
+        shallow.add(child.copy())
+    return shallow
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomModel.detach_child">
+    <p>def <span class="ident">detach_child</span>(</p><p>self, id)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Remove a child.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomModel.detach_child', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomModel.detach_child" class="source">
+    <pre><code>def detach_child(self, id):
+    """Remove a child."""
+    child = self.child_dict[id]
+    child.detach_parent()
+    del self.child_dict[id]
+    self.child_list.remove(child)
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomModel.detach_parent">
+    <p>def <span class="ident">detach_parent</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Detach the parent.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomModel.detach_parent', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomModel.detach_parent" class="source">
+    <pre><code>def detach_parent(self):
+    """Detach the parent."""
+    self.parent = None
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomModel.get_atoms">
+    <p>def <span class="ident">get_atoms</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return atoms.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomModel.get_atoms', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomModel.get_atoms" class="source">
+    <pre><code>def get_atoms(self):
+    """Return atoms."""
+    for r in self.get_residues():
+        for a in r:
+            yield a
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomModel.get_chains">
+    <p>def <span class="ident">get_chains</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return chains.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomModel.get_chains', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomModel.get_chains" class="source">
+    <pre><code>def get_chains(self):
+    """Return chains."""
+    for c in self:
+        yield c
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomModel.get_full_id">
+    <p>def <span class="ident">get_full_id</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return the full id.</p>
+<p>The full id is a tuple containing all id's starting from
+the top object (Structure) down to the current object. A full id for
+a Residue object e.g. is something like:</p>
+<p>("1abc", 0, "A", (" ", 10, "A"))</p>
+<p>This corresponds to:</p>
+<p>Structure with id "1abc"
+Model with id 0
+Chain with id "A"
+Residue with id (" ", 10, "A")</p>
+<p>The Residue id indicates that the residue is not a hetero-residue
+(or a water) because it has a blank hetero field, that its sequence
+identifier is 10 and its insertion code "A".</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomModel.get_full_id', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomModel.get_full_id" class="source">
+    <pre><code>def get_full_id(self):
+    """Return the full id.
+    The full id is a tuple containing all id's starting from
+    the top object (Structure) down to the current object. A full id for
+    a Residue object e.g. is something like:
+    ("1abc", 0, "A", (" ", 10, "A"))
+    This corresponds to:
+    Structure with id "1abc"
+    Model with id 0
+    Chain with id "A"
+    Residue with id (" ", 10, "A")
+    The Residue id indicates that the residue is not a hetero-residue
+    (or a water) because it has a blank hetero field, that its sequence
+    identifier is 10 and its insertion code "A".
+    """
+    if self.full_id is None:
+        self._reset_full_id()
+    return self.full_id
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomModel.get_id">
+    <p>def <span class="ident">get_id</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return the id.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomModel.get_id', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomModel.get_id" class="source">
+    <pre><code>def get_id(self):
+    """Return the id."""
+    return self.id
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomModel.get_iterator">
+    <p>def <span class="ident">get_iterator</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return iterator over children.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomModel.get_iterator', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomModel.get_iterator" class="source">
+    <pre><code>def get_iterator(self):
+    """Return iterator over children."""
+    for child in self.child_list:
+        yield child
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomModel.get_level">
+    <p>def <span class="ident">get_level</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return level in hierarchy.</p>
+<p>A - atom
+R - residue
+C - chain
+M - model
+S - structure</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomModel.get_level', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomModel.get_level" class="source">
+    <pre><code>def get_level(self):
+    """Return level in hierarchy.
+    A - atom
+    R - residue
+    C - chain
+    M - model
+    S - structure
+    """
+    return self.level
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomModel.get_list">
+    <p>def <span class="ident">get_list</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return a copy of the list of children.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomModel.get_list', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomModel.get_list" class="source">
+    <pre><code>def get_list(self):
+    """Return a copy of the list of children."""
+    return copy(self.child_list)
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomModel.get_parent">
+    <p>def <span class="ident">get_parent</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return the parent Entity object.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomModel.get_parent', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomModel.get_parent" class="source">
+    <pre><code>def get_parent(self):
+    """Return the parent Entity object."""
+    return self.parent
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomModel.get_residues">
+    <p>def <span class="ident">get_residues</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Return residues.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomModel.get_residues', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomModel.get_residues" class="source">
+    <pre><code>def get_residues(self):
+    """Return residues."""
+    for c in self.get_chains():
+        for r in c:
+            yield r
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomModel.has_id">
+    <p>def <span class="ident">has_id</span>(</p><p>self, id)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Check if a child with given id exists.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomModel.has_id', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomModel.has_id" class="source">
+    <pre><code>def has_id(self, id):
+    """Check if a child with given id exists."""
+    return id in self.child_dict
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomModel.insert">
+    <p>def <span class="ident">insert</span>(</p><p>self, pos, entity)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Add a child to the Entity at a specified position.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomModel.insert', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomModel.insert" class="source">
+    <pre><code>def insert(self, pos, entity):
+    """Add a child to the Entity at a specified position."""
+    entity_id = entity.get_id()
+    if self.has_id(entity_id):
+        raise PDBConstructionException(
+            "%s defined twice" % str(entity_id))
+    entity.set_parent(self)
+    self.child_list[pos:pos] = [entity]
+    self.child_dict[entity_id] = entity
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomModel.save_to_mmCIF">
+    <p>def <span class="ident">save_to_mmCIF</span>(</p><p>self, out_name)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Saves a model using the given output name in the cwd</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomModel.save_to_mmCIF', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomModel.save_to_mmCIF" class="source">
+    <pre><code>def save_to_mmCIF(self, out_name):
+    """Saves a model using the given output name in the cwd"""
+    io = Bio.PDB.MMCIFIO()
+    io.set_structure(self)
+    try:
+        io.save(out_name+".cif")
+        print(out_name+".cif saved")
+    except:
+        sys.stderr.write("Couldn't save models to current working directory. "
+                         "Make sure you have permission to write files")
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomModel.set_parent">
+    <p>def <span class="ident">set_parent</span>(</p><p>self, entity)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Set the parent Entity object.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomModel.set_parent', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomModel.set_parent" class="source">
+    <pre><code>def set_parent(self, entity):
+    """Set the parent Entity object."""
+    self.parent = entity
+    self._reset_full_id()
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="MB.CustomPDB.CustomModel.transform">
+    <p>def <span class="ident">transform</span>(</p><p>self, rot, tran)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Apply rotation and translation to the atomic coordinates.</p>
+<p>:param rot: A right multiplying rotation matrix
+:type rot: 3x3 Numeric array</p>
+<p>:param tran: the translation vector
+:type tran: size 3 Numeric array</p>
+<h2>Examples</h2>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>rotation = rotmat(pi, Vector(1, 0, 0))
+translation = array((0, 0, 1), 'f')
+entity.transform(rotation, translation)</p>
+</blockquote>
+</blockquote>
+</blockquote></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-MB.CustomPDB.CustomModel.transform', this);">Show source &equiv;</a></p>
+  <div id="source-MB.CustomPDB.CustomModel.transform" class="source">
+    <pre><code>def transform(self, rot, tran):
+    """Apply rotation and translation to the atomic coordinates.
+    :param rot: A right multiplying rotation matrix
+    :type rot: 3x3 Numeric array
+    :param tran: the translation vector
+    :type tran: size 3 Numeric array
+    Examples
+    --------
+    >>> rotation = rotmat(pi, Vector(1, 0, 0))
+    >>> translation = array((0, 0, 1), 'f')
+    >>> entity.transform(rotation, translation)
+    """
+    for o in self.get_list():
+        o.transform(rot, tran)
+</code></pre>
+  </div>
+</div>
+
+  </div>
+  
+          <h3>Instance variables</h3>
+            <div class="item">
+            <p id="MB.CustomPDB.CustomModel.id" class="name">var <span class="ident">id</span></p>
+            
+
+            
+  
+    <div class="desc"><p>Return identifier.</p></div>
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+
+  </section>
+
+    </article>
+  <div class="clear"> </div>
+  <footer id="footer">
+    <p>
+      Documentation generated by
+      <a href="https://github.com/BurntSushi/pdoc">pdoc 0.3.2</a>
+    </p>
+
+    <p>pdoc is in the public domain with the
+      <a href="http://unlicense.org">UNLICENSE</a></p>
+
+    <p>Design by <a href="http://nadh.in">Kailash Nadh</a></p>
+  </footer>
+</div>
+</body>
+</html>
